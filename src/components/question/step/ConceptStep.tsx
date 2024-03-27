@@ -12,7 +12,7 @@ type Props = {
   onNext: () => void;
 };
 
-const Step7 = ({ onNext }: Props) => {
+export const ConceptStep = ({ onNext }: Props) => {
   return (
     <div className="flex h-full w-full flex-col">
       <QuestionTitle text={'축사의 컨셉은\n무엇인가요?'} />
@@ -31,5 +31,3 @@ const Step7 = ({ onNext }: Props) => {
     </div>
   );
 };
-
-export default Step7;

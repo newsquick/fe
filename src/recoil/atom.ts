@@ -22,5 +22,5 @@ export const AnswerDataState = atom<AnswerList[]>({
 
 export const StepState = atom({
   key: 'stepState',
-  default: 'userName',
+  default: '사용자이름',
 });

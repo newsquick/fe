@@ -15,7 +15,7 @@ type Props = {
   onNext: () => void;
 };
 
-const Step4 = ({ onNext }: Props) => {
+export const RelationshipStep = ({ onNext }: Props) => {
   return (
     <div className="flex h-full w-full flex-col">
       <QuestionTitle text={'축사를 받는 사람을\n뭐라고 부르면 좋을까요?'} />
@@ -29,7 +29,7 @@ const Step4 = ({ onNext }: Props) => {
                 data-ga="question_4rd"
                 fill={fill}
               />
-              <span className=" text-sm text-gray700">{value}</span>
+              <span className="text-sm text-gray700">{value}</span>
             </div>
           );
         })}
@@ -37,5 +37,3 @@ const Step4 = ({ onNext }: Props) => {
     </div>
   );
 };
-
-export default Step4;

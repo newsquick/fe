@@ -8,7 +8,7 @@ type Props = {
   onNext: () => void;
 };
 
-const Step6 = ({ onNext }: Props) => {
+export const SpeechTypeStep = ({ onNext }: Props) => {
   return (
     <div className="flex h-full w-full flex-col">
       <QuestionTitle text={'축사 말투는\n어떻게 할까요?'} />
@@ -27,5 +27,3 @@ const Step6 = ({ onNext }: Props) => {
     </div>
   );
 };
-
-export default Step6;

@@ -11,7 +11,7 @@ type Props = {
   onNext: () => void;
 };
 
-const Step3 = ({ onNext }: Props) => {
+export const TargetTypeStep = ({ onNext }: Props) => {
   return (
     <div className="flex h-full w-full flex-col">
       <QuestionTitle text={'축사를 받을 사람은\n신랑인가요, 신부인가요?'} />
@@ -31,5 +31,3 @@ const Step3 = ({ onNext }: Props) => {
     </div>
   );
 };
-
-export default Step3;

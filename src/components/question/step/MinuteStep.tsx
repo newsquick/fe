@@ -14,7 +14,7 @@ type Props = {
   onNext: () => void;
 };
 
-const Step5 = ({ onNext }: Props) => {
+export const MinuteStep = ({ onNext }: Props) => {
   return (
     <div className="flex h-full w-full flex-col">
       <QuestionTitle text={'축사를 몇 분으로\n하면 좋을까요?'} />
@@ -41,5 +41,3 @@ const Step5 = ({ onNext }: Props) => {
     </div>
   );
 };
-
-export default Step5;
