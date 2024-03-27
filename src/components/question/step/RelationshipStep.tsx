@@ -1,4 +1,6 @@
 import CloudIcon from 'assets/images/cloud.svg?react';
+import { useSetRecoilState } from 'recoil';
+import { AnswerDataState } from 'src/recoil/atom';
 
 import QuestionTitle from '../QuestionTitle';
 
@@ -16,6 +18,8 @@ type Props = {
 };
 
 export const RelationshipStep = ({ onNext }: Props) => {
+  const setAnswerData = useSetRecoilState(AnswerDataState);
+
   return (
     <div className="flex h-full w-full flex-col">
       <QuestionTitle text={'축사를 받는 사람을\n뭐라고 부르면 좋을까요?'} />
@@ -25,7 +29,10 @@ export const RelationshipStep = ({ onNext }: Props) => {
             <div key={id} className="flex flex-col items-center gap-[9px]">
               <CloudIcon
                 className="cursor-pointer hover:fill-indigo"
-                onClick={onNext}
+                onClick={() => {
+                  setAnswerData((prev) => ({ ...prev, relationship: value }));
+                  onNext();
+                }}
                 data-ga="question_4rd"
                 fill={fill}
               />

@@ -1,4 +1,6 @@
 import TriangleIcon from 'assets/images/triangle.svg?react';
+import { useSetRecoilState } from 'recoil';
+import { AnswerDataState } from 'src/recoil/atom';
 
 import QuestionTitle from '../QuestionTitle';
 
@@ -15,6 +17,8 @@ type Props = {
 };
 
 export const MinuteStep = ({ onNext }: Props) => {
+  const setAnswerData = useSetRecoilState(AnswerDataState);
+
   return (
     <div className="flex h-full w-full flex-col">
       <QuestionTitle text={'축사를 몇 분으로\n하면 좋을까요?'} />
@@ -25,7 +29,10 @@ export const MinuteStep = ({ onNext }: Props) => {
             className={`custom-hover flex h-[55px] w-full items-center justify-items-start rounded-[5px] bg-gray100 p-[13px] py-6  text-gray900 ${
               value === '3분' ? 'relative' : ''
             }`}
-            onClick={onNext}
+            onClick={() => {
+              setAnswerData((prev) => ({ ...prev, minute: value }));
+              onNext();
+            }}
             data-ga="question_5th"
           >
             {value}

@@ -1,5 +1,7 @@
 import Button from 'components/common/Button';
 import useInput from 'hooks/useInput';
+import { useSetRecoilState } from 'recoil';
+import { AnswerDataState } from 'src/recoil/atom';
 
 import QuestionTitle from '../QuestionTitle';
 
@@ -9,6 +11,7 @@ type Props = {
 
 export const UserNameStep = ({ onNext }: Props) => {
   const [value, handleChange] = useInput('');
+  const setAnswerData = useSetRecoilState(AnswerDataState);
 
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col justify-between">
@@ -21,7 +24,14 @@ export const UserNameStep = ({ onNext }: Props) => {
           onChange={handleChange}
         />
       </div>
-      <Button disabled={value.length === 0} onClick={onNext} data-ga="question_1rd">
+      <Button
+        disabled={value.length === 0}
+        onClick={() => {
+          setAnswerData((prev) => ({ ...prev, userName: value }));
+          onNext();
+        }}
+        data-ga="question_1rd"
+      >
         다음
       </Button>
     </div>

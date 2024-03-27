@@ -1,5 +1,7 @@
 import Button from 'components/common/Button';
 import useInput from 'hooks/useInput';
+import { useSetRecoilState } from 'recoil';
+import { AnswerDataState } from 'src/recoil/atom';
 
 import QuestionTitle from '../QuestionTitle';
 
@@ -9,6 +11,7 @@ type Props = {
 
 export const LastCommentStep = ({ onNext }: Props) => {
   const [value, handleChange] = useInput('');
+  const setAnswerData = useSetRecoilState(AnswerDataState);
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col justify-between">
       <div>
@@ -28,7 +31,14 @@ export const LastCommentStep = ({ onNext }: Props) => {
           </div>
         </label>
       </div>
-      <Button disabled={value.length === 0} onClick={onNext} ga="question_9th">
+      <Button
+        disabled={value.length === 0}
+        onClick={() => {
+          setAnswerData((prev) => ({ ...prev, lastComment: value }));
+          onNext();
+        }}
+        ga="question_9th"
+      >
         내 축사 확인하기
       </Button>
     </div>

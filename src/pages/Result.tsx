@@ -5,45 +5,43 @@ import ResultContentBox from 'components/result/resultSection/ResultContentBox';
 import ResultRetryButton from 'components/result/resultSection/ResultRetryButton';
 import ResultTitle from 'components/result/resultSection/ResultTitle';
 import SpeechCautionSection from 'components/result/speechCautionSection/SpeechCautionSection';
-import { API_MESSAGE } from 'constants/path';
-import { AnswerContext } from 'context/AnswerContext';
-import useFetch from 'hooks/useFetch';
-import { useContext, useEffect, useState } from 'react';
+
+// import useFetch from 'hooks/useFetch';
+// import { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const Result = () => {
-  const [result, setResult] = useState('');
+  // const [result, setResult] = useState('');
 
-  const location = useLocation();
+  // const location = useLocation();
 
-  useEffect(() => {
-    const originResult = location.state.data.resultData;
+  // useEffect(() => {
+  //   const originResult = location.state.data.resultData;
 
-    if (originResult) {
-      setResult(originResult);
-    }
-  }, []);
+  //   if (originResult) {
+  //     setResult(originResult);
+  //   }
+  // }, []);
 
-  const { answer, handleAnswerUpdate } = useContext(AnswerContext);
-  const { fetchData, isLoading } = useFetch(API_MESSAGE, answer);
-  const name = answer.userName;
 
-  const handleRefetch = async () => {
-    handleAnswerUpdate('isRenew', true);
+  // const name = answer.userName;
 
-    const data = await fetchData();
-    const newResult = data.resultData;
+  // const handleRefetch = async () => {
+  //   handleAnswerUpdate('isRenew', true);
 
-    setResult(newResult);
-  };
+  //   const data = await fetchData();
+    // const newResult = data.resultData;
+
+  //   setResult(newResult);
+  // };
 
   return (
     <>
-      {isLoading ? (
+      {/* {isLoading ? (
         <Loading isRenew={true} />
       ) : (
         <>
-          <div className="flex flex-col items-center bg-gradient bg-cover px-6">
+          <div className="flex flex-col items-center px-6 bg-cover bg-gradient">
             <Header />
             <ResultTitle name={name} />
             <ResultContentBox>{result}</ResultContentBox>
@@ -53,7 +51,7 @@ const Result = () => {
 
           <SpeechCautionSection />
         </>
-      )}
+      )} */}
     </>
   );
 };

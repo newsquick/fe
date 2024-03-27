@@ -1,4 +1,6 @@
 import { useFunnel } from 'hooks/useFunnel';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { AnswerDataState, StepState } from 'src/recoil/atom';
 
 import {
   ConceptStep,
@@ -12,7 +14,7 @@ import {
   UserNameStep,
 } from './step';
 
-const STEPS = [
+export const STEPS = [
   '사용자이름',
   '대상자이름',
   '대상유형',
@@ -25,7 +27,10 @@ const STEPS = [
 ] as const;
 
 const QuestionFunnel = () => {
-  const { Funnel, setStep } = useFunnel();
+  const { Funnel } = useFunnel();
+  const setStep = useSetRecoilState(StepState);
+  const answerData = useRecoilValue(AnswerDataState);
+  console.log(answerData);
 
   return (
     <Funnel>

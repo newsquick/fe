@@ -7,7 +7,10 @@ export const currentStepState = selector({
   key: 'currentStepState',
   get: ({ get }) => {
     const step = get(StepState);
-    const stepNum = STEPS.indexOf(step) + 1;
-    return { stepNum };
+
+    const stepIdx = STEPS.indexOf(step);
+    const stepNum = stepIdx + 1;
+
+    return { stepIdx, stepNum };
   },
 });

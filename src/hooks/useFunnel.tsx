@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { StepState } from 'src/recoil/atom';
 
 export interface StepProps {
@@ -12,7 +12,7 @@ export interface FunnelProps {
 }
 
 export const useFunnel = () => {
-  const [step, setStep] = useRecoilState(StepState);
+  const step = useRecoilValue(StepState);
 
   const Step = (props: StepProps): ReactElement => {
     return <>{props.children}</>;
@@ -26,5 +26,5 @@ export const useFunnel = () => {
 
   Funnel.step = Step;
 
-  return { Funnel, setStep, currentStep: step } as const;
+  return { Funnel } as const;
 };

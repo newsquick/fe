@@ -1,4 +1,6 @@
 import FlowerIcon from 'assets/images/flower.svg?react';
+import { useSetRecoilState } from 'recoil';
+import { AnswerDataState } from 'src/recoil/atom';
 
 import QuestionTitle from '../QuestionTitle';
 
@@ -12,6 +14,7 @@ type Props = {
 };
 
 export const TargetTypeStep = ({ onNext }: Props) => {
+  const setAnswerData = useSetRecoilState(AnswerDataState);
   return (
     <div className="flex h-full w-full flex-col">
       <QuestionTitle text={'축사를 받을 사람은\n신랑인가요, 신부인가요?'} />
@@ -20,7 +23,10 @@ export const TargetTypeStep = ({ onNext }: Props) => {
           <button
             key={id}
             className="custom-hover flex h-[187px] w-full flex-col items-center justify-between rounded-[5px] bg-gray-100 py-6 "
-            onClick={onNext}
+            onClick={() => {
+              setAnswerData((prev) => ({ ...prev, targetType: value }));
+              onNext();
+            }}
             data-ga="question_3rd"
           >
             <FlowerIcon fill={fill} />
