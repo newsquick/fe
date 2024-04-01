@@ -19,8 +19,13 @@ export const MessageApi = {
     return messageId;
   },
 
-  PUT: async (body: string) => {
-    const response = await instance.put('/api/message', body);
+  PUT: async (id: string, updateAnswer: string) => {
+    const body = {
+      messageId: id,
+      resultUpdateData: updateAnswer,
+    };
+    const { data: response } = await instance.put('/api/message', body);
+
     return response;
   },
 };
