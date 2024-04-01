@@ -1,29 +1,17 @@
-import { AxiosResponse } from 'axios';
 import { AnswerData } from 'types/index';
 
-import { createInstance } from './instance';
-
-export interface CommonResponse<T> {
-  status: string;
-  code: string;
-  message: string;
-  data: T;
-}
-
-export interface MessageGetResponse {
-  messageId: string;
-  regData: string;
-  resultData: string;
-}
+import { instance } from './instance';
 
 export const MessageApi = {
-  GET: async <T>(id: string): Promise<T | null> => {
-    const { data }: AxiosResponse<CommonResponse<T>> = await createInstance().get(`/api/message/${id}`);
-    return data.data;
+  GET: async (id: string): Promise<string> => {
+    const { data } = await instance.get(`/api/message/${id}`);
+    const { resultData } = data.data;
+
+    return resultData;
   },
 
   POST: async (answerData: AnswerData): Promise<string> => {
-    const { data } = await createInstance().post('/api/message', answerData, {
+    const { data } = await instance.post('/api/message', answerData, {
       headers: { 'Content-Type': 'application/json' },
     });
     const { messageId } = data.data;
@@ -32,7 +20,7 @@ export const MessageApi = {
   },
 
   PUT: async (body: string) => {
-    const response = await createInstance().put('/api/message', body);
+    const response = await instance.put('/api/message', body);
     return response;
   },
 };

@@ -1,11 +1,7 @@
-import axios, { AxiosInstance } from 'axios';
+import axios from 'axios';
 
-export const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-export const createInstance = (): AxiosInstance => {
-  const instance = axios.create({
-    baseURL: BASE_URL,
-  });
-
-  return instance;
-};
+export const instance = axios.create({
+  baseURL: BASE_URL,
+});
