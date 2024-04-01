@@ -1,18 +1,26 @@
-import { Funnel, FunnelProps, NonEmptyArray, Step, StepProps } from 'components/question/\bfunnel/Funnel';
-import { useMemo, useState } from 'react';
+import { ReactElement, ReactNode, useState } from 'react';
 
-const useFunnel = <Steps extends NonEmptyArray<string>>(_: Steps, defaultStep: Steps[number]) => {
+export interface StepProps {
+  name: string;
+  children: ReactNode;
+}
+
+export interface FunnelProps {
+  children: Array<ReactElement<StepProps>>;
+}
+
+export const useFunnel = (defaultStep: string) => {
   const [step, setStep] = useState(defaultStep);
 
-  const FunnelComponent = useMemo(
-    () =>
-      Object.assign((props: Omit<FunnelProps<Steps>, 'step'>) => <Funnel step={step} {...props} />, {
-        Step: (props: StepProps<Steps>) => <Step {...props} />,
-      }),
-    [step],
-  );
+  const Step = (props: StepProps): ReactElement => {
+    return <>{props.children}</>;
+  };
 
-  return [FunnelComponent, setStep] as const;
+  const Funnel = ({ children }: FunnelProps) => {
+    const targetStep = children.find((childStep) => childStep.props.name === step);
+
+    return <>{targetStep}</>;
+  };
+
+  return { Funnel, Step, currentStep: step, setStep } as const;
 };
-
-export default useFunnel;

@@ -9,19 +9,19 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  onNext: () => void;
+  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
-const Step7 = ({ onNext }: Props) => {
+const ConceptStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex flex-col w-full h-full">
       <QuestionTitle text={'축사의 컨셉은\n무엇인가요?'} />
       <div className="flex flex-col gap-4">
         {BUTTON_VALUE.map(({ id, value }) => (
           <button
             key={id}
             className="custom-hover flex h-[55px] w-full items-center justify-items-start rounded-[5px] bg-gray100 p-[13px] py-6  text-gray900"
-            onClick={onNext}
+            onClick={() => nextStep(value)}
             data-ga="question_7th"
           >
             {value}
@@ -32,4 +32,4 @@ const Step7 = ({ onNext }: Props) => {
   );
 };
 
-export default Step7;
+export default ConceptStep;

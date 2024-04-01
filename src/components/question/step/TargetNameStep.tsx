@@ -4,11 +4,12 @@ import useInput from 'hooks/useInput';
 import QuestionTitle from '../QuestionTitle';
 
 type Props = {
-  onNext: () => void;
+  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
-const Step2 = ({ onNext }: Props) => {
+const TargetNameStep = ({ nextStep }: Props) => {
   const [value, handleChange] = useInput('');
+
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col justify-between">
       <div>
@@ -20,11 +21,11 @@ const Step2 = ({ onNext }: Props) => {
           onChange={handleChange}
         />
       </div>
-      <Button disabled={value.length === 0} onClick={onNext} data-ga="question_2rd">
+      <Button disabled={value.length === 0} onClick={() => nextStep(value)} data-ga="question_2rd">
         다음
       </Button>
     </div>
   );
 };
 
-export default Step2;
+export default TargetNameStep;

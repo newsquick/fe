@@ -1,59 +1,53 @@
+import EditIcon from 'assets/images/edit.svg?react';
 import Header from 'components/common/Header';
-import Loading from 'components/common/Loading';
 import CopyToClipboardButton from 'components/result/resultSection/ClipboardButton';
-import ResultContentBox from 'components/result/resultSection/ResultContentBox';
-import ResultRetryButton from 'components/result/resultSection/ResultRetryButton';
 import ResultTitle from 'components/result/resultSection/ResultTitle';
 import SpeechCautionSection from 'components/result/speechCautionSection/SpeechCautionSection';
-import { API_MESSAGE } from 'constants/path';
-import { AnswerContext } from 'context/AnswerContext';
-import useFetch from 'hooks/useFetch';
-import { useContext, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { MessageApi } from 'src/apis/MessageAPI';
 
 const Result = () => {
+  const { id } = useParams();
   const [result, setResult] = useState('');
-
-  const location = useLocation();
-
-  useEffect(() => {
-    const originResult = location.state.data.resultData;
-
-    if (originResult) {
-      setResult(originResult);
-    }
-  }, []);
-
-  const { answer, handleAnswerUpdate } = useContext(AnswerContext);
-  const { fetchData, isLoading } = useFetch(API_MESSAGE, answer);
+  const { state: answer } = useLocation();
   const name = answer.userName;
 
-  const handleRefetch = async () => {
-    handleAnswerUpdate('isRenew', true);
+  useEffect(() => {
+    const getResult = async () => {
+      const resultData = await MessageApi.GET(String(id));
+      setResult(resultData);
+    };
 
-    const data = await fetchData();
-    const newResult = data.resultData;
-
-    setResult(newResult);
-  };
+    getResult();
+  }, []);
 
   return (
     <>
-      {isLoading ? (
-        <Loading isRenew={true} />
-      ) : (
-        <>
-          <div className="flex flex-col items-center bg-gradient bg-cover px-6">
-            <Header />
-            <ResultTitle name={name} />
-            <ResultContentBox>{result}</ResultContentBox>
-            <CopyToClipboardButton copyText={result} />
-            <ResultRetryButton onClick={handleRefetch} />
+      <div className="flex flex-col items-center bg-gradient bg-cover px-6">
+        <Header />
+        <ResultTitle name={name} />
+        <div className="mb-5 w-full rounded-[10px] border border-white border-opacity-60 bg-white bg-opacity-50 bg-clip-padding px-[26px] pb-[26px] pt-[29px] backdrop-blur-sm backdrop-filter">
+          <span className="whitespace-pre-line text-[15px] leading-[170%] tracking-[-0.6px] text-gray800">
+            {result}
+          </span>
+          <div className="float-right mt-[17px]">
+            <Link
+              to="/edit"
+              state={{
+                id: id,
+                result: result,
+              }}
+            >
+              <EditIcon />
+            </Link>
           </div>
+        </div>
+        <CopyToClipboardButton copyText={result} />
+        {/* <ResultRetryButton onClick={handleRefetch} /> */}
+      </div>
 
-          <SpeechCautionSection />
-        </>
-      )}
+      <SpeechCautionSection />
     </>
   );
 };

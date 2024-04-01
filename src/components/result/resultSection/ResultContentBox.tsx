@@ -1,5 +1,4 @@
 import EditIcon from 'assets/images/edit.svg?react';
-import MeatballIcon from 'assets/images/meatball.svg?react';
 import { Link } from 'react-router-dom';
 
 const ResultContentBox = ({ children }: { children: React.ReactNode }) => {
@@ -8,8 +7,7 @@ const ResultContentBox = ({ children }: { children: React.ReactNode }) => {
       <span className="whitespace-pre-line text-[15px] leading-[170%] tracking-[-0.6px] text-gray800">
         {children}
       </span>
-      <div className="mt-[26px] flex w-full justify-between">
-        <MeatballIcon />
+      <div className="float-right mt-[17px]">
         <Link to={'/edit'}>
           <EditIcon />
         </Link>
@@ -19,4 +17,3 @@ const ResultContentBox = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default ResultContentBox;
-//

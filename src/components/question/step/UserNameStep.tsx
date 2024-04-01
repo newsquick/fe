@@ -4,10 +4,10 @@ import useInput from 'hooks/useInput';
 import QuestionTitle from '../QuestionTitle';
 
 type Props = {
-  onNext: () => void;
+  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
-const Step1 = ({ onNext }: Props) => {
+const UserNameStep = ({ nextStep }: Props) => {
   const [value, handleChange] = useInput('');
 
   return (
@@ -21,11 +21,11 @@ const Step1 = ({ onNext }: Props) => {
           onChange={handleChange}
         />
       </div>
-      <Button disabled={value.length === 0} onClick={onNext} data-ga="question_1rd">
+      <Button disabled={value.length === 0} onClick={() => nextStep(value)} data-ga="question_1rd">
         다음
       </Button>
     </div>
   );
 };
 
-export default Step1;
+export default UserNameStep;

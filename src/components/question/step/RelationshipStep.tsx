@@ -12,12 +12,12 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  onNext: () => void;
+  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
-const Step4 = ({ onNext }: Props) => {
+const RelationshipStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex flex-col w-full h-full">
       <QuestionTitle text={'축사를 받는 사람을\n뭐라고 부르면 좋을까요?'} />
       <div className="grid grid-cols-4 grid-rows-2 gap-x-4 gap-y-7">
         {BUTTON_VALUE.map(({ id, value, fill }) => {
@@ -25,11 +25,11 @@ const Step4 = ({ onNext }: Props) => {
             <div key={id} className="flex flex-col items-center gap-[9px]">
               <CloudIcon
                 className="cursor-pointer hover:fill-indigo"
-                onClick={onNext}
+                onClick={() => nextStep(value)}
                 data-ga="question_4rd"
                 fill={fill}
               />
-              <span className=" text-sm text-gray700">{value}</span>
+              <span className="text-sm text-gray700">{value}</span>
             </div>
           );
         })}
@@ -38,4 +38,4 @@ const Step4 = ({ onNext }: Props) => {
   );
 };
 
-export default Step4;
+export default RelationshipStep;

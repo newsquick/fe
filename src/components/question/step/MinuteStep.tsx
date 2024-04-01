@@ -11,12 +11,12 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  onNext: () => void;
+  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
-const Step5 = ({ onNext }: Props) => {
+const MinuteStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex flex-col w-full h-full">
       <QuestionTitle text={'축사를 몇 분으로\n하면 좋을까요?'} />
       <div className="flex flex-col gap-4">
         {BUTTON_VALUE.map(({ id, value }) => (
@@ -25,7 +25,7 @@ const Step5 = ({ onNext }: Props) => {
             className={`custom-hover flex h-[55px] w-full items-center justify-items-start rounded-[5px] bg-gray100 p-[13px] py-6  text-gray900 ${
               value === '3분' ? 'relative' : ''
             }`}
-            onClick={onNext}
+            onClick={() => nextStep(value)}
             data-ga="question_5th"
           >
             {value}
@@ -42,4 +42,4 @@ const Step5 = ({ onNext }: Props) => {
   );
 };
 
-export default Step5;
+export default MinuteStep;
