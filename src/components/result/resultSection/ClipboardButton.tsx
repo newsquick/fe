@@ -1,8 +1,6 @@
-import Swal from 'sweetalert2';
-
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-
 import Button from 'components/common/Button';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Swal from 'sweetalert2';
 
 type Props = {
   copyText: string;

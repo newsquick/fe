@@ -85,7 +85,7 @@ export const QUESTION_LIST = [
     question: '축사 중간에 들어갈 재밌는\n에피소드가 있다면 알려 주세요.',
     field: 'story',
     type: 'textarea',
-    options: 'ex. 오빠는 나에게 신부 언니와의 연애를\n자주 상담했다.',
+    options: 'ex. 매일같이 학교 앞에서 떡볶이 사먹으며 친하게 지냈었다.',
     ga: 'question_8th',
   },
   {

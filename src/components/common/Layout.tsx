@@ -1,18 +1,11 @@
 type Props = {
   children: React.ReactNode;
-  style?: 'default' | 'result';
 };
 
-const STYLE = {
-  default: 'flex flex-col justify-between px-6 pb-9 ',
-  result: '',
-};
-
-const Layout = ({ children, style = 'default' }: Props) => {
-  const layoutStyle = STYLE[style];
+const Layout = ({ children }: Props) => {
   return (
-    <div className="bg-slate-100">
-      <div className={`${layoutStyle} mx-auto h-screen w-[375px] bg-white`}>{children}</div>
+    <div className="bg-slate-100] mx-auto w-full">
+      <div className="mx-auto h-screen w-full max-w-[500px] bg-white shadow-xl">{children}</div>
     </div>
   );
 };

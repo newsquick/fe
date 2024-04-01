@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Pretendard;
+    font-weight: 400;
+    src:
+      local('Pretendard Regular'),
+      url('assets/fonts/Pretendard-Regular.woff') format('woff'),
+      url('assets/fonts/Pretendard-Regular.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: Pretendard;
+    font-weight: 500;
+    src:
+      local('Pretendard Medium'),
+      url('assets/fonts/Pretendard-Medium.woff') format('woff'),
+      url('assets/fonts/Pretendard-Medium.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: Pretendard;
+    font-weight: 700;
+    src:
+      local('Pretendard Bold'),
+      url('assets/fonts/Pretendard-Bold.woff') format('woff'),
+      url('assets/fonts/Pretendard-Bold.woff2') format('woff2');
+  }
+
+  html {
+    font-family: 'Pretendard';
+    font-size: 16px;
+  }
+
+  body {
+    height: 100%;
+    background-color: rgb(241 245 249);
+  }
+}
+
+.custom-hover:hover {
+  background-color: #e9edff;
+  outline: 2px solid #7990f6;
+}
+
+.swal2-container {
+  max-width: 500px !important;
+  width: 100% !important;
+  padding: 24px;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}

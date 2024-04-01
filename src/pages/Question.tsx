@@ -1,72 +1,52 @@
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import { QUESTION_LIST } from 'constants/index';
-import { API_MESSAGE } from 'constants/path';
-
-import { AnswerContext } from 'context/AnswerContext';
-import { PageContext } from 'context/PageContext';
-
-import useFetch from 'hooks/useFetch';
-
-import SelectComponent from 'components/question/SelectComponent';
 import Header from 'components/common/Header';
-import Layout from 'components/common/Layout';
 import Loading from 'components/common/Loading';
 import ProgressBar from 'components/question/ProgressBar';
-import QuestionTitle from 'components/question/QuestionTitle';
+import QuestionFunnel from 'components/question/QuestionFunnel';
+import { useFunnel } from 'hooks/useFunnel';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { MessageApi } from 'src/apis/MessageAPI';
+import { AnswerData } from 'types/index';
 
-const LAST_PAGE = 9;
+export const STEPS = [
+  '사용자이름',
+  '대상자이름',
+  '대상유형',
+  '관계',
+  '축사시간',
+  '말투',
+  '컨셉',
+  '이야기',
+  '마지막할말',
+];
 
-const QuestionPage = () => {
-  const { page, handlePrev, handleNext } = useContext(PageContext);
-  const { answer, handleAnswerUpdate } = useContext(AnswerContext);
-
+const Question = () => {
+  const [loading, setLoading] = useState(false);
+  const { Funnel, Step, currentStep, setStep } = useFunnel(STEPS[0]);
   const navigate = useNavigate();
 
-  const { fetchData, isLoading } = useFetch(API_MESSAGE, answer);
-
-  const handleClick = async (field: string, value: string) => {
-    handleAnswerUpdate(field, value);
-
-    if (page === LAST_PAGE) {
-      const data = await fetchData();
-      navigate('/result', { state: { data } });
-    } else {
-      handleNext();
-    }
+  const handlePost = async (answer: AnswerData) => {
+    setLoading(true);
+    const id = await MessageApi.POST(answer);
+    setLoading(false);
+    navigate(`/result/${id}`, { state: answer });
   };
 
+  const stepNum = STEPS.indexOf(currentStep) + 1;
+
   return (
-    <Layout>
-      {isLoading ? (
+    <>
+      {loading ? (
         <Loading />
       ) : (
-        <>
-          <Header onClick={handlePrev} />
-          <ProgressBar currentPage={page} />
-          {QUESTION_LIST.map(({ id, question, type, field, options, ga }) => {
-            return (
-              page === id && (
-                <div key={id}>
-                  <QuestionTitle>{question}</QuestionTitle>
-                  <div className="flex h-[calc(100vh-273px)] flex-col justify-between">
-                    {SelectComponent({
-                      type: type,
-                      options: options,
-                      onClick: handleClick,
-                      field: field,
-                      ga: ga,
-                    })}
-                  </div>
-                </div>
-              )
-            );
-          })}
-        </>
+        <div className="h-full px-6 pb-9">
+          <Header onPrev={() => setStep(STEPS[stepNum - 1])} />
+          <ProgressBar currentStep={stepNum} />
+          <QuestionFunnel steps={STEPS} Funnel={Funnel} Step={Step} setStep={setStep} onPost={handlePost} />
+        </div>
       )}
-    </Layout>
+    </>
   );
 };
 
-export default QuestionPage;
+export default Question;

@@ -2,21 +2,13 @@ type Props = {
   children: string;
   disabled?: any;
   ga?: string;
-  size?: 'small' | 'medium';
   onClick?: any;
 };
 
-const SIZES = {
-  small: 'w-[275px]',
-  medium: 'w-[327px]',
-};
-
-const Button = ({ children, disabled, ga, size = 'medium', onClick }: Props) => {
-  const buttonWidthSize = SIZES[size];
-
+const Button = ({ children, disabled, ga, onClick }: Props) => {
   return (
     <button
-      className={`${buttonWidthSize} flex h-[55px] items-center justify-center rounded-[10px] bg-gray1000 font-pretendard text-[17px] font-bold text-white disabled:bg-gray-400`}
+      className="flex h-[55px] w-full items-center justify-center rounded-[10px] bg-gray900 text-[17px] font-bold text-white disabled:bg-gray-400"
       disabled={disabled}
       data-ga={ga}
       onClick={onClick}

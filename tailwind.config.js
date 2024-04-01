@@ -1,5 +1,5 @@
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -10,10 +10,9 @@ export default {
         gray500: '#B0B8C1',
         gray600: '#8F8E9C',
         gray700: '#686D75',
-        gray800: '#464854',
-        gray900: '#404349',
-        gray1000: '#30343E',
-        gray1100: '#191F28',
+        gray800: '#404349',
+        gray900: '#30343E',
+        gray1000: '#191F28',
         indigo: '#7990F6',
       },
 
@@ -21,9 +20,5 @@ export default {
         gradient: 'url("/assets/bg_result.webp")',
       },
     },
-    fontFamily: {
-      pretendard: ['Pretendard'],
-    },
-    plugins: [],
   },
 };

@@ -1,4 +1,4 @@
-export type UserAnswer = {
+export type AnswerData = {
   userName: string;
   targetName: string;
   targetType: string;
