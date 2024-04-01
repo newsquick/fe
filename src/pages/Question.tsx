@@ -29,7 +29,7 @@ const Question = () => {
     setLoading(true);
     const id = await MessageApi.POST(answer);
     setLoading(false);
-    navigate(`/result/${id}`);
+    navigate(`/result/${id}`, { state: answer });
   };
 
   const stepNum = STEPS.indexOf(currentStep) + 1;

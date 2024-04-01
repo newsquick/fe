@@ -1,57 +1,38 @@
 import Header from 'components/common/Header';
-import Loading from 'components/common/Loading';
 import CopyToClipboardButton from 'components/result/resultSection/ClipboardButton';
 import ResultContentBox from 'components/result/resultSection/ResultContentBox';
-import ResultRetryButton from 'components/result/resultSection/ResultRetryButton';
 import ResultTitle from 'components/result/resultSection/ResultTitle';
 import SpeechCautionSection from 'components/result/speechCautionSection/SpeechCautionSection';
-
-// import useFetch from 'hooks/useFetch';
-// import { useContext, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import { MessageApi } from 'src/apis/MessageAPI';
 
 const Result = () => {
-  // const [result, setResult] = useState('');
+  const { id } = useParams();
+  const [result, setResult] = useState('');
+  const { state: answer } = useLocation();
+  const name = answer.userName;
 
-  // const location = useLocation();
+  useEffect(() => {
+    const getResult = async () => {
+      const resultData = await MessageApi.GET(String(id));
+      setResult(resultData);
+    };
 
-  // useEffect(() => {
-  //   const originResult = location.state.data.resultData;
-
-  //   if (originResult) {
-  //     setResult(originResult);
-  //   }
-  // }, []);
-
-
-  // const name = answer.userName;
-
-  // const handleRefetch = async () => {
-  //   handleAnswerUpdate('isRenew', true);
-
-  //   const data = await fetchData();
-    // const newResult = data.resultData;
-
-  //   setResult(newResult);
-  // };
+    getResult();
+  }, []);
 
   return (
     <>
-      {/* {isLoading ? (
-        <Loading isRenew={true} />
-      ) : (
-        <>
-          <div className="flex flex-col items-center px-6 bg-cover bg-gradient">
-            <Header />
-            <ResultTitle name={name} />
-            <ResultContentBox>{result}</ResultContentBox>
-            <CopyToClipboardButton copyText={result} />
-            <ResultRetryButton onClick={handleRefetch} />
-          </div>
+      <div className="flex flex-col items-center bg-gradient bg-cover px-6">
+        <Header />
+        <ResultTitle name={name} />
+        <ResultContentBox>{result}</ResultContentBox>
+        <CopyToClipboardButton copyText={result} />
+        {/* <ResultRetryButton onClick={handleRefetch} /> */}
+      </div>
 
-          <SpeechCautionSection />
-        </>
-      )} */}
+      <SpeechCautionSection />
     </>
   );
 };
