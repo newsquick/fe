@@ -1,6 +1,4 @@
-import { useSetRecoilState } from 'recoil';
-import { AnswerDataState } from 'src/recoil/atom';
-
+/* eslint-disable no-unused-vars */
 import QuestionTitle from '../QuestionTitle';
 
 const BUTTON_VALUE = [
@@ -9,24 +7,19 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  onNext: () => void;
+  nextStep: (value: string) => void;
 };
 
-export const SpeechTypeStep = ({ onNext }: Props) => {
-  const setAnswerData = useSetRecoilState(AnswerDataState);
-
+const SpeechTypeStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex h-full w-full flex-col">
       <QuestionTitle text={'축사 말투는\n어떻게 할까요?'} />
       <div className="flex flex-col gap-4">
         {BUTTON_VALUE.map(({ id, value }) => (
           <button
             key={id}
             className="custom-hover flex h-[55px] w-full items-center justify-items-start rounded-[5px] bg-gray100 p-[13px] py-6  text-gray900"
-            onClick={() => {
-              setAnswerData((prev) => ({ ...prev, speechType: value }));
-              onNext();
-            }}
+            onClick={() => nextStep(value)}
             data-ga="question_6th"
           >
             {value}
@@ -36,3 +29,5 @@ export const SpeechTypeStep = ({ onNext }: Props) => {
     </div>
   );
 };
+
+export default SpeechTypeStep;

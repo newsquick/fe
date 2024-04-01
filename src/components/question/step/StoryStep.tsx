@@ -1,17 +1,15 @@
+/* eslint-disable no-unused-vars */
 import Button from 'components/common/Button';
 import useInput from 'hooks/useInput';
-import { useSetRecoilState } from 'recoil';
-import { AnswerDataState } from 'src/recoil/atom';
 
 import QuestionTitle from '../QuestionTitle';
 
 type Props = {
-  onNext: () => void;
+  nextStep: (value: string) => void;
 };
 
-export const StoryStep = ({ onNext }: Props) => {
+const StoryStep = ({ nextStep }: Props) => {
   const [value, handleChange] = useInput('');
-  const setAnswerData = useSetRecoilState(AnswerDataState);
 
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col justify-between">
@@ -32,16 +30,11 @@ export const StoryStep = ({ onNext }: Props) => {
           </div>
         </label>
       </div>
-      <Button
-        disabled={value.length === 0}
-        onClick={() => {
-          setAnswerData((prev) => ({ ...prev, story: value }));
-          onNext();
-        }}
-        ga="question_8th"
-      >
+      <Button disabled={value.length === 0} onClick={() => nextStep(value)} ga="question_8th">
         다음
       </Button>
     </div>
   );
 };
+
+export default StoryStep;

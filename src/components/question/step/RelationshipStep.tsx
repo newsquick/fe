@@ -1,6 +1,5 @@
+/* eslint-disable no-unused-vars */
 import CloudIcon from 'assets/images/cloud.svg?react';
-import { useSetRecoilState } from 'recoil';
-import { AnswerDataState } from 'src/recoil/atom';
 
 import QuestionTitle from '../QuestionTitle';
 
@@ -14,14 +13,12 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  onNext: () => void;
+  nextStep: (value: string) => void;
 };
 
-export const RelationshipStep = ({ onNext }: Props) => {
-  const setAnswerData = useSetRecoilState(AnswerDataState);
-
+const RelationshipStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex flex-col w-full h-full">
       <QuestionTitle text={'축사를 받는 사람을\n뭐라고 부르면 좋을까요?'} />
       <div className="grid grid-cols-4 grid-rows-2 gap-x-4 gap-y-7">
         {BUTTON_VALUE.map(({ id, value, fill }) => {
@@ -29,10 +26,7 @@ export const RelationshipStep = ({ onNext }: Props) => {
             <div key={id} className="flex flex-col items-center gap-[9px]">
               <CloudIcon
                 className="cursor-pointer hover:fill-indigo"
-                onClick={() => {
-                  setAnswerData((prev) => ({ ...prev, relationship: value }));
-                  onNext();
-                }}
+                onClick={() => nextStep(value)}
                 data-ga="question_4rd"
                 fill={fill}
               />
@@ -44,3 +38,5 @@ export const RelationshipStep = ({ onNext }: Props) => {
     </div>
   );
 };
+
+export default RelationshipStep;
