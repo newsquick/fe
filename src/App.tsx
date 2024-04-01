@@ -1,13 +1,7 @@
-import { RecoilRoot } from 'recoil';
-
 import Router from './routes/Router';
 
 const App = () => {
-  return (
-    <RecoilRoot>
-      <Router />
-    </RecoilRoot>
-  );
+  return <Router />;
 };
 
 export default App;
