@@ -33,7 +33,12 @@ const CopyToClipboardButton = ({ copyText }: Props) => {
           })
         }
       >
-        <Button ga="result_clipboard">{COPY_BUTTON_TEXT}</Button>
+        <button
+          className="flex h-[55px] w-full items-center justify-center rounded-[10px] bg-gray900 font-bold  text-white"
+          data-ga="result_clipboard"
+        >
+          {COPY_BUTTON_TEXT}
+        </button>
       </CopyToClipboard>
     </>
   );

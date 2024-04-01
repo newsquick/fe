@@ -4,6 +4,7 @@ import Loading from 'components/common/Loading';
 import CopyToClipboardButton from 'components/result/resultSection/ClipboardButton';
 import ResultRetryButton from 'components/result/resultSection/ResultRetryButton';
 import ResultTitle from 'components/result/resultSection/ResultTitle';
+import SaveImageButton from 'components/result/resultSection/SaveImageButton';
 import SpeechCautionSection from 'components/result/speechCautionSection/SpeechCautionSection';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -59,7 +60,10 @@ const Result = () => {
                 </Link>
               </div>
             </div>
-            <CopyToClipboardButton copyText={result} />
+            <div className="flex w-full gap-2">
+              <SaveImageButton />
+              <CopyToClipboardButton copyText={result} />
+            </div>
             <ResultRetryButton retryResult={() => handleRetry(answer)} />
           </div>
 
