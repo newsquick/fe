@@ -1,66 +1,119 @@
-import { useFunnel } from 'hooks/useFunnel';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { AnswerDataState, StepState } from 'src/recoil/atom';
+import { FunnelProps, StepProps } from 'hooks/useFunnel';
+import { useState } from 'react';
 
-import {
-  ConceptStep,
-  LastCommentStep,
-  MinuteStep,
-  RelationshipStep,
-  SpeechTypeStep,
-  StoryStep,
-  TargetNameStep,
-  TargetTypeStep,
-  UserNameStep,
-} from './step';
+import ConceptStep from './step/ConceptStep';
+import LastCommentStep from './step/LastCommentStep';
+import MinuteStep from './step/MinuteStep';
+import RelationshipStep from './step/RelationshipStep';
+import SpeechTypeStep from './step/SpeechTypeStep';
+import StoryStep from './step/StoryStep';
+import TargetNameStep from './step/TargetNameStep';
+import TargetTypeStep from './step/TargetTypeStep';
+import UserNameStep from './step/UserNameStep';
 
-export const STEPS = [
-  '사용자이름',
-  '대상자이름',
-  '대상유형',
-  '관계',
-  '축사시간',
-  '말투',
-  '컨셉',
-  '이야기',
-  '마지막할말',
-] as const;
+export interface Props {
+  steps: string[];
+  Funnel: React.ComponentType<FunnelProps>;
+  Step: React.ComponentType<StepProps>;
+  setStep: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const QuestionFunnel = () => {
-  const { Funnel } = useFunnel();
-  const setStep = useSetRecoilState(StepState);
-  const answerData = useRecoilValue(AnswerDataState);
-  console.log(answerData);
+const QuestionFunnel = ({ steps, Funnel, Step, setStep }: Props) => {
+  const [answer, setAnswer] = useState({
+    userName: '',
+    targetName: '',
+    targetType: '',
+    relationship: '',
+    minute: '',
+    speechType: '',
+    concept: '',
+    story: '',
+    lastComment: '',
+    isRenew: false,
+  });
+
+  console.log(answer);
+
+  const updateAnswer = (step: string, value: string) => {
+    setAnswer((prevAnswer) => ({
+      ...prevAnswer,
+      [step]: value,
+    }));
+  };
 
   return (
     <Funnel>
-      <Funnel.step name="사용자이름">
-        <UserNameStep onNext={() => setStep(STEPS[1])} />
-      </Funnel.step>
-      <Funnel.step name="대상자이름">
-        <TargetNameStep onNext={() => setStep(STEPS[2])} />
-      </Funnel.step>
-      <Funnel.step name="대상유형">
-        <TargetTypeStep onNext={() => setStep(STEPS[3])} />
-      </Funnel.step>
-      <Funnel.step name="관계">
-        <RelationshipStep onNext={() => setStep(STEPS[4])} />
-      </Funnel.step>
-      <Funnel.step name="축사시간">
-        <MinuteStep onNext={() => setStep(STEPS[5])} />
-      </Funnel.step>
-      <Funnel.step name="말투">
-        <SpeechTypeStep onNext={() => setStep(STEPS[6])} />
-      </Funnel.step>
-      <Funnel.step name="컨셉">
-        <ConceptStep onNext={() => setStep(STEPS[7])} />
-      </Funnel.step>
-      <Funnel.step name="이야기">
-        <StoryStep onNext={() => setStep(STEPS[8])} />
-      </Funnel.step>
-      <Funnel.step name="마지막할말">
-        <LastCommentStep onNext={() => {}} /> {/* fetch 처리 */}
-      </Funnel.step>
+      <Step name="사용자이름">
+        <UserNameStep
+          nextStep={(value) => {
+            updateAnswer('userName', value);
+            setStep(steps[1]);
+          }}
+        />
+      </Step>
+      <Step name="대상자이름">
+        <TargetNameStep
+          nextStep={(value) => {
+            updateAnswer('targetName', value);
+            setStep(steps[2]);
+          }}
+        />
+      </Step>
+      <Step name="대상유형">
+        <TargetTypeStep
+          nextStep={(value) => {
+            updateAnswer('targetType', value);
+            setStep(steps[3]);
+          }}
+        />
+      </Step>
+      <Step name="관계">
+        <RelationshipStep
+          nextStep={(value) => {
+            updateAnswer('relationship', value);
+            setStep(steps[4]);
+          }}
+        />
+      </Step>
+      <Step name="축사시간">
+        <MinuteStep
+          nextStep={(value) => {
+            updateAnswer('minute', value);
+            setStep(steps[5]);
+          }}
+        />
+      </Step>
+      <Step name="말투">
+        <SpeechTypeStep
+          nextStep={(value) => {
+            updateAnswer('speechType', value);
+            setStep(steps[6]);
+          }}
+        />
+      </Step>
+      <Step name="컨셉">
+        <ConceptStep
+          nextStep={(value) => {
+            updateAnswer('concept', value);
+            setStep(steps[7]);
+          }}
+        />
+      </Step>
+      <Step name="이야기">
+        <StoryStep
+          nextStep={(value) => {
+            updateAnswer('story', value);
+            setStep(steps[8]);
+          }}
+        />
+      </Step>
+      <Step name="마지막할말">
+        <LastCommentStep
+          onSubmit={(value) => {
+            updateAnswer('lastComment', value);
+          }}
+        />
+      </Step>
     </Funnel>
   );
 };
