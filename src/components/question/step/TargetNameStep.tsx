@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
 import Button from 'components/common/Button';
 import useInput from 'hooks/useInput';
 
 import QuestionTitle from '../QuestionTitle';
 
 type Props = {
-  nextStep: (value: string) => void;
+  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
 const TargetNameStep = ({ nextStep }: Props) => {

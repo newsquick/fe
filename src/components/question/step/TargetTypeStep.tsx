@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 import FlowerIcon from 'assets/images/flower.svg?react';
 
 import QuestionTitle from '../QuestionTitle';
 
 type Props = {
-  nextStep: (value: string) => void;
+  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
 const BUTTON_VALUE = [
@@ -14,7 +13,7 @@ const BUTTON_VALUE = [
 
 const TargetTypeStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex flex-col w-full h-full">
       <QuestionTitle text={'축사를 받을 사람은\n신랑인가요, 신부인가요?'} />
       <div className="flex justify-between gap-3">
         {BUTTON_VALUE.map(({ id, value, fill }) => (

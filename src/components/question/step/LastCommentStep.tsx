@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
 import Button from 'components/common/Button';
 import useInput from 'hooks/useInput';
 
 import QuestionTitle from '../QuestionTitle';
 
 type Props = {
-  onSubmit: (value: string) => void;
+  onSubmit: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
 const LastCommentStep = ({ onSubmit }: Props) => {

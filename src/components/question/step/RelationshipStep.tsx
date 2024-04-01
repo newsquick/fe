@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import CloudIcon from 'assets/images/cloud.svg?react';
 
 import QuestionTitle from '../QuestionTitle';
@@ -13,7 +12,7 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  nextStep: (value: string) => void;
+  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
 const RelationshipStep = ({ nextStep }: Props) => {

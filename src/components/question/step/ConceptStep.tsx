@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import QuestionTitle from '../QuestionTitle';
 
 const BUTTON_VALUE = [
@@ -10,12 +9,12 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  nextStep: (value: string) => void;
+  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
 };
 
 const ConceptStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex flex-col w-full h-full">
       <QuestionTitle text={'축사의 컨셉은\n무엇인가요?'} />
       <div className="flex flex-col gap-4">
         {BUTTON_VALUE.map(({ id, value }) => (
