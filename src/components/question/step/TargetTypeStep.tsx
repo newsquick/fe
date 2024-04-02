@@ -13,7 +13,7 @@ const BUTTON_VALUE = [
 
 const TargetTypeStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex h-[calc(100%-84px)] w-full flex-col">
       <QuestionTitle text={'축사를 받을 사람은\n신랑인가요, 신부인가요?'} />
       <div className="flex justify-between gap-3">
         {BUTTON_VALUE.map(({ id, value, fill }) => (
