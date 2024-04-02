@@ -25,7 +25,7 @@ const LastCommentStep = ({ onSubmit }: Props) => {
                 onChange={handleChange}
               />
               <span className="absolute bottom-2.5 right-3.5 mt-[30px]  text-[14px] tracking-[-0.3px] text-gray400">
-                0/400자
+                {value.length}/400자
               </span>
             </div>
           </label>
