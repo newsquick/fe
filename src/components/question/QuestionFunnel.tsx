@@ -34,8 +34,6 @@ const QuestionFunnel = ({ steps, Funnel, Step, setStep, onPost }: Props) => {
     isRenew: false,
   });
 
-  console.log(answer);
-
   const updateAnswer = (step: string, value: string) => {
     setAnswer((prevAnswer) => ({
       ...prevAnswer,
