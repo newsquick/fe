@@ -4,6 +4,7 @@ import Loading from 'components/common/Loading';
 import CopyToClipboardButton from 'components/result/resultSection/ClipboardButton';
 import ResultRetryButton from 'components/result/resultSection/ResultRetryButton';
 import ResultTitle from 'components/result/resultSection/ResultTitle';
+import SaveImageButton from 'components/result/resultSection/SaveImageButton';
 import SpeechCautionSection from 'components/result/speechCautionSection/SpeechCautionSection';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -25,7 +26,7 @@ const Result = () => {
     };
 
     getResult();
-  }, []);
+  }, [id]);
 
   const handleRetry = async (answer: AnswerData) => {
     setLoading(true);
@@ -40,7 +41,7 @@ const Result = () => {
         <Loading isRenew={true} />
       ) : (
         <>
-          <div className="flex flex-col items-center bg-gradient bg-cover px-6">
+          <div className="flex flex-col items-center px-6 bg-cover bg-gradient">
             <Header />
             <ResultTitle name={name} />
             <div className="mb-5 w-full rounded-[10px] border border-white border-opacity-60 bg-white bg-opacity-50 bg-clip-padding px-[26px] pb-[26px] pt-[29px] backdrop-blur-sm backdrop-filter">
@@ -59,7 +60,10 @@ const Result = () => {
                 </Link>
               </div>
             </div>
-            <CopyToClipboardButton copyText={result} />
+            <div className="flex w-full gap-2">
+              <SaveImageButton />
+              <CopyToClipboardButton copyText={result} />
+            </div>
             <ResultRetryButton retryResult={() => handleRetry(answer)} />
           </div>
 
