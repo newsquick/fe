@@ -40,7 +40,7 @@ const Onboarding = () => {
 
   return (
     <div className="mx-auto flex h-full w-full flex-col justify-between px-6 py-9">
-      <div className="h-full w-full">
+      <div className="h-full w-full pb-16">
         <Slider {...settings}>
           {slides.map(({ image, description }, index) => (
             <div
@@ -51,6 +51,7 @@ const Onboarding = () => {
                 className="bg-bottom-4 h-[calc(100%-80px)] w-full bg-contain bg-no-repeat"
                 style={{
                   backgroundImage: `url(${image})`,
+                  backgroundPosition: 'center',
                 }}
               />
               <div className="flex h-20 flex-col justify-between">
