@@ -17,7 +17,7 @@ type Props = {
 
 const RelationshipStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex h-[calc(100%-84px)] w-full flex-col">
       <QuestionTitle text={'축사를 받는 사람을\n뭐라고 부르면 좋을까요?'} />
       <div className="grid grid-cols-4 grid-rows-2 gap-x-4 gap-y-7">
         {BUTTON_VALUE.map(({ id, value, fill }) => {

@@ -14,7 +14,7 @@ type Props = {
 
 const ConceptStep = ({ nextStep }: Props) => {
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex h-[calc(100%-84px)] w-full flex-col">
       <QuestionTitle text={'축사의 컨셉은\n무엇인가요?'} />
       <div className="flex flex-col gap-4">
         {BUTTON_VALUE.map(({ id, value }) => (
