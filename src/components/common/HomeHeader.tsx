@@ -4,10 +4,13 @@ const HomeHeader = () => {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: '블룸',
-        text: '막막한 축사 준비를 손쉽게',
+        title: '블룸(BLOOM)',
         url: 'https://ai-bloom.site',
       });
+    } else if (navigator.clipboard) {
+      navigator.clipboard
+        .writeText('https://ai-bloom.site')
+        .then(() => alert('링크가 클립보드에 복사되었습니다.'));
     } else {
       alert('공유하기가 지원되지 않는 환경 입니다.');
     }
