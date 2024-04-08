@@ -1,6 +1,6 @@
 import ShareIcon from 'assets/images/share.svg?react';
 
-const HomeHeader = () => {
+const ShareButton = () => {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
@@ -17,12 +17,10 @@ const HomeHeader = () => {
   };
 
   return (
-    <div className="flex h-16 w-full items-center justify-end">
-      <button className="flex h-6 w-6 items-center justify-end" onClick={handleShare} data-ga="header_share">
-        <ShareIcon />
-      </button>
-    </div>
+    <button className="flex h-6 w-6 items-center justify-end" onClick={handleShare} data-ga="header_share">
+      <ShareIcon />
+    </button>
   );
 };
 
-export default HomeHeader;
+export default ShareButton;
