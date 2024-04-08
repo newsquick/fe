@@ -37,7 +37,7 @@ const SLIDER_SETTINGS = {
 };
 
 const TEXT_HEIGHT = 80;
-const IMAGE_HEIGHT = `h-[calc(100%-${TEXT_HEIGHT}px)]`;
+const IMAGE_HEIGHT = `calc(100% - ${TEXT_HEIGHT}px)`;
 
 const Carousel = () => {
   return (
@@ -46,8 +46,9 @@ const Carousel = () => {
         {SLIDES.map(({ image, description }, index) => (
           <div key={index} className="flex h-full w-full cursor-pointer flex-col items-center justify-center">
             <div
-              className={`bg-bottom-4 w-full bg-contain bg-no-repeat ${IMAGE_HEIGHT}`}
+              className="bg-bottom-4 w-full bg-contain bg-no-repeat"
               style={{
+                height: IMAGE_HEIGHT,
                 backgroundImage: `url(${image})`,
                 backgroundPosition: 'center',
               }}
