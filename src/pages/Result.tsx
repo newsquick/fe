@@ -41,7 +41,7 @@ const Result = () => {
         <Loading isRenew={true} />
       ) : (
         <>
-          <div className="flex flex-col items-center px-6 bg-cover bg-gradient">
+          <div className="flex flex-col items-center bg-gradient bg-cover px-6">
             <Header />
             <ResultTitle name={name} />
             <div className="mb-5 w-full rounded-[10px] border border-white border-opacity-60 bg-white bg-opacity-50 bg-clip-padding px-[26px] pb-[26px] pt-[29px] backdrop-blur-sm backdrop-filter">
@@ -54,6 +54,7 @@ const Result = () => {
                   state={{
                     id: id,
                     result: result,
+                    name: name,
                   }}
                 >
                   <EditIcon />

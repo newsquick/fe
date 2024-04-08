@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { MessageApi } from 'src/apis/MessageAPI';
 
 const Edit = () => {
-  const { result, id } = useLocation().state;
+  const { result, id, name } = useLocation().state;
   const [value, handleChange] = useInput(result);
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const Edit = () => {
           수정 완료
         </button>
       </div>
-      <ResultTitle name="sdf" />
+      <ResultTitle name={name} />
       <div className="mb-5 h-[calc(100vh-160px)] w-full rounded-[10px] border border-white border-opacity-60 bg-white bg-opacity-50 bg-clip-padding px-[26px] pb-[26px] pt-[29px] backdrop-blur-sm backdrop-filter">
         <textarea
           className="h-full w-full resize-none bg-white bg-opacity-0 text-[15px] leading-[170%] tracking-[-0.6px] text-gray800 focus:outline-none"
