@@ -1,6 +1,5 @@
 import { FunnelProps, StepProps } from 'hooks/useFunnel';
 import { useState } from 'react';
-import { AnswerData } from 'types/index';
 
 import ConceptStep from './step/ConceptStep';
 import LastCommentStep from './step/LastCommentStep';
@@ -21,7 +20,7 @@ export interface Props {
 }
 
 const QuestionFunnel = ({ steps, Funnel, Step, setStep, onPost }: Props) => {
-  const [answer, setAnswer] = useState({
+  const [answerData, setAnswerData] = useState({
     userName: '',
     targetName: '',
     targetType: '',
@@ -35,7 +34,7 @@ const QuestionFunnel = ({ steps, Funnel, Step, setStep, onPost }: Props) => {
   });
 
   const updateAnswer = (step: string, value: string) => {
-    setAnswer((prevAnswer) => ({
+    setAnswerData((prevAnswer) => ({
       ...prevAnswer,
       [step]: value,
     }));
@@ -111,7 +110,7 @@ const QuestionFunnel = ({ steps, Funnel, Step, setStep, onPost }: Props) => {
         <LastCommentStep
           onSubmit={(value) => {
             updateAnswer('lastComment', value);
-            onPost(answer);
+            onPost(answerData);
           }}
         />
       </Step>

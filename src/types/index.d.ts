@@ -1,4 +1,4 @@
-export type AnswerData = {
+type AnswerData = {
   userName: string;
   targetName: string;
   targetType: string;
@@ -9,4 +9,8 @@ export type AnswerData = {
   story: string;
   lastComment: string;
   isRenew: boolean;
+};
+
+type ChildrenProps = {
+  children: React.ReactNode;
 };

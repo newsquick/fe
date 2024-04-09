@@ -1,5 +1,3 @@
-import { AnswerData } from 'types/index';
-
 import { instance } from './instance';
 
 export const MessageApi = {
