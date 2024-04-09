@@ -1,8 +1,4 @@
-type Props = {
-  children: React.ReactNode;
-};
-
-const Layout = ({ children }: Props) => {
+const Layout = ({ children }: ChildrenProps) => {
   return (
     <div className="relative h-screen w-full bg-[url('/assets/bg_home.png')] bg-cover px-6 pb-9">
       {children}
