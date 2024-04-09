@@ -9,7 +9,6 @@ import SpeechCautionSection from 'components/result/speechCautionSection/SpeechC
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { MessageApi } from 'src/apis/MessageAPI';
-import { AnswerData } from 'types/index';
 
 const Result = () => {
   const [loading, setLoading] = useState(false);

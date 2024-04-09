@@ -6,7 +6,6 @@ import { useFunnel } from 'hooks/useFunnel';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageApi } from 'src/apis/MessageAPI';
-import { AnswerData } from 'types/index';
 
 export const STEPS = [
   '사용자이름',
@@ -37,7 +36,7 @@ const Question = () => {
   return (
     <>
       {loading ? (
-        <Loading />
+      <Loading />
       ) : (
         <div className="h-full px-6 pb-9">
           <Header onPrev={() => setStep(STEPS[stepNum - 1])} />

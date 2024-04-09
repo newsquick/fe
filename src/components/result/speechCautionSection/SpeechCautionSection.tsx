@@ -3,16 +3,12 @@ import NavigateButton from 'components/common/NavigateButton';
 import CautionList from './CautionList';
 import CautionTitle from './CautionTitle';
 
-const HOME_BUTTON_TEXT = '홈으로 가기';
-
 const SpeechCautionSection = () => {
   return (
     <div className="bg-white px-6 pb-10 pt-[62px]">
-      <CautionTitle />
+      <CautionTitle title={'축사를 읽을 때 이런 부분을\n조심해주세요'} />
       <CautionList />
-      <NavigateButton path="home" ga="result_home">
-        {HOME_BUTTON_TEXT}
-      </NavigateButton>
+      <NavigateButton path="home" ga="result_home" text="홈으로 가기" />
     </div>
   );
 };
