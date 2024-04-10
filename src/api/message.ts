@@ -1,15 +1,17 @@
-import { instance } from './instance';
+import { MessageGetResponse, MessagePostResponse } from 'types/api';
+
+import { axiosInstance } from './config';
 
 export const MessageApi = {
-  GET: async (id: string): Promise<string> => {
-    const { data } = await instance.get(`/api/message/${id}`);
+  GET: async (id: string) => {
+    const { data } = await axiosInstance.get<{ data: MessageGetResponse }>(`/api/message/${id}`);
     const { resultData } = data.data;
 
     return resultData;
   },
 
   POST: async (answerData: AnswerData): Promise<string> => {
-    const { data } = await instance.post('/api/message', answerData, {
+    const { data } = await axiosInstance.post<{ data: MessagePostResponse }>('/api/message', answerData, {
       headers: { 'Content-Type': 'application/json' },
     });
     const { messageId } = data.data;
@@ -22,7 +24,7 @@ export const MessageApi = {
       messageId: id,
       resultUpdateData: updateAnswer,
     };
-    const { data: response } = await instance.put('/api/message', body);
+    const { data: response } = await axiosInstance.put('/api/message', body);
 
     return response;
   },

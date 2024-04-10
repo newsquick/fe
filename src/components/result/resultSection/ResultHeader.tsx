@@ -2,7 +2,7 @@ import ChevronIcon from 'assets/images/chevron-left.svg?react';
 import ShareButton from 'components/common/ShareButton';
 import { Link } from 'react-router-dom';
 
-export default function ResultHeader() {
+const ResultHeader = () => {
   return (
     <div className="flex h-16 w-full items-center justify-between">
       <Link to={'/question'}>
@@ -13,4 +13,6 @@ export default function ResultHeader() {
       <ShareButton />
     </div>
   );
-}
+};
+
+export default ResultHeader;
