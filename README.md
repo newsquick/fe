@@ -34,14 +34,14 @@ npm run dev
 
 ## 🛠️ 기술 스택
 <div>
-<img src="https://img.shields.io/badge/React-000000?style=for-the-badge&logo=React&logoColor=61DAFB"/>
-<img src="https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=3178C6"/>
-<img src="https://img.shields.io/badge/Tailwind-000000?style=for-the-badge&logo=TailwindCSS&logoColor=06B6D4">
-<img src="https://img.shields.io/badge/ESlint-000000?style=for-the-badge&logo=eslint&logoColor=4B32C3">
-<img src="https://img.shields.io/badge/Prettier-000000?style=for-the-badge&logo=prettier&logoColor=F7B93E">
-<img src="https://img.shields.io/badge/Vite-000000?style=for-the-badge&logo=vite&logoColor=646CFF">
-<img src="https://img.shields.io/badge/Axios-000000?style=for-the-badge&logo=axios&logoColor=5A29E4">
-<img src="https://img.shields.io/badge/Netlify-000000?style=for-the-badge&logo=netlify&logoColor=00C7B7">
+<img src="https://img.shields.io/badge/React-30343E?style=for-the-badge&logo=React&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/TypeScript-30343E?style=for-the-badge&logo=typescript&logoColor=3178C6"/>
+<img src="https://img.shields.io/badge/Tailwind-30343E?style=for-the-badge&logo=TailwindCSS&logoColor=06B6D4">
+<img src="https://img.shields.io/badge/ESlint-30343E?style=for-the-badge&logo=eslint&logoColor=4B32C3">
+<img src="https://img.shields.io/badge/Prettier-30343E?style=for-the-badge&logo=prettier&logoColor=F7B93E">
+<img src="https://img.shields.io/badge/Vite-30343E?style=for-the-badge&logo=vite&logoColor=646CFF">
+<img src="https://img.shields.io/badge/Axios-30343E?style=for-the-badge&logo=axios&logoColor=5A29E4">
+<img src="https://img.shields.io/badge/Netlify-30343E?style=for-the-badge&logo=netlify&logoColor=00C7B7">
 </div>
 
 ## 🗺️ 아키텍처
