@@ -12,14 +12,17 @@
 - [서비스 인터뷰 영상](https://www.youtube.com/watch?v=9o1gq_I531s)
 
 ## 💫 전체 화면 구성
-  ![화면구성](https://github.com/saseungg/readme-art/assets/115215178/d524b8aa-78c4-4d3d-9cc8-f3583acae468)
+![image](https://github.com/with-Bloom/bloom-fe/assets/115215178/ef2605c0-4400-4e00-ac4d-7fa46a7a2efb)
 
 ## ✨ 주요 기능
-- 캐러셀 슬라이더를 통해 온보딩을 확인할 수 있습니다.
-- Funnel 구조의 9개 응답 페이지를 통해 축사 생성을 위한 데이터를 수집합니다.
-- 수집한 데이터를 기반으로 축사 문장을 생성합니다.
-- 생성한 축사를 수정, 재생성할 수 있습니다.
-- 축사 텍스트를 클립보드에 복사할 수 있습니다.
+- **캐러셀**: 서비스의 핵심 기능을 슬라이드하면서 확인할 수 있습니다.
+- **데이터 수집**: Funnel 구조의 9개의 페이지를 통해 축사 생성에 필요한 데이터를 수집합니다.
+- **축사 생성**: 수집한 데이터를 Clova에 전달하여 축사 문장을 생성합니다.
+- **수정 및 재생성**: 생성된 축사를 사용자가 원하는 대로 수정하고 재생성할 수 있습니다.
+- **텍스트 복사**: 생성된 축사를 클립보드에 복사하여 손쉽게 공유할 수 있습니다.
+- **서비스 공유**: iOS 기기에서는 시스템 공유를 통해 서비스를 다른 사용자와 공유할 수 있으며, 다른 기기에서는 클립보드에 복사하여 서비스를 공유할 수 있습니다.
+- **이미지 저장**: 생성된 축사를 PNG 이미지로 저장하여 보관하거나 공유할 수 있습니다.
+
 
 ## 🔎 프로젝트 실행
 프로젝트의 root 디렉토리에서 아래 커멘드를 실행
@@ -29,13 +32,17 @@ npm run dev
 ```
 이후, 브라우저에서 `localhost:5173` 확인
 
-## 🛠️ 주요 기술 스택 (TODO: 기술을 선택한 이유 작성하기)
-- **React.js:** 웹 UI 라이브러리
-- **Recoil:** 전역 상태관리
-- **TypeScript:** 정적 타입 사용 및 코드 에러 검출
-- **tailwindcss:** 빠르고 간편한 CSS 스타일링
-- **ESLint & Prettier:** 코드 컨벤션 검사 및 코드 포맷팅
-- **Netlify:** 웹 애플리케이션 배포
+## 🛠️ 기술 스택
+<div>
+<img src="https://img.shields.io/badge/React-000000?style=for-the-badge&logo=React&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=3178C6"/>
+<img src="https://img.shields.io/badge/Tailwind-000000?style=for-the-badge&logo=TailwindCSS&logoColor=06B6D4">
+<img src="https://img.shields.io/badge/ESlint-000000?style=for-the-badge&logo=eslint&logoColor=4B32C3">
+<img src="https://img.shields.io/badge/Prettier-000000?style=for-the-badge&logo=prettier&logoColor=F7B93E">
+<img src="https://img.shields.io/badge/Vite-000000?style=for-the-badge&logo=vite&logoColor=646CFF">
+<img src="https://img.shields.io/badge/Axios-000000?style=for-the-badge&logo=axios&logoColor=5A29E4">
+<img src="https://img.shields.io/badge/Netlify-000000?style=for-the-badge&logo=netlify&logoColor=00C7B7">
+</div>
 
 ## 🗺️ 아키텍처
 ![10](https://github.com/with-Bloom/bloom-react/assets/115215178/6461c4f5-19d8-4869-a2e4-5e26fcbd45cb)
