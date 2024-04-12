@@ -11,12 +11,9 @@
 - [네이버 클라우드 우수작 시상식 현장 영상](https://www.youtube.com/watch?v=XPyCf9NS-rk)
 - [서비스 인터뷰 영상](https://www.youtube.com/watch?v=9o1gq_I531s)
 
-## 💫 전체 화면 구성
-![image](https://github.com/with-Bloom/bloom-fe/assets/115215178/ef2605c0-4400-4e00-ac4d-7fa46a7a2efb)
-
 ## 데모 🎥
 
-https://github.com/with-Bloom/bloom-fe/assets/115215178/17c7569e-7bba-47af-8d95-8c0089f574de
+https://github.com/with-Bloom/bloom-fe/assets/115215178/87a7d7f4-e073-4ebd-8757-930056f12457
 
 ## ✨ 주요 기능
 - **캐러셀**: 서비스의 핵심 기능을 슬라이드하면서 확인할 수 있습니다.
