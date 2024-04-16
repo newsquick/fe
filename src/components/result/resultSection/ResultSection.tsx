@@ -5,7 +5,7 @@ import ResultRetryButton from 'components/result/resultSection/ResultRetryButton
 import ResultTitle from 'components/result/resultSection/ResultTitle';
 import SaveImageButton from 'components/result/resultSection/SaveImageButton';
 import { SERVER_URL } from 'constants/env';
-import useGetMessage from 'hooks/useGetMessage';
+import useGetMessage from 'hooks/apis/useGetMessage';
 import useSaveImage from 'hooks/useSaveImage';
 import { Link, useParams } from 'react-router-dom';
 

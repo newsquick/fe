@@ -1,7 +1,7 @@
 import Loading from 'components/common/Loading';
-import ResultSection from 'components/result/resultSection/ResultSection';
 import SpeechCautionSection from 'components/common/speechCautionSection/SpeechCautionSection';
-import usePostMessage from 'hooks/usePostMessage';
+import ResultSection from 'components/result/resultSection/ResultSection';
+import usePostMessage from 'hooks/apis/usePostMessage';
 import { useLocation } from 'react-router-dom';
 
 const Result = () => {

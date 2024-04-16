@@ -3,8 +3,8 @@ import Loading from 'components/common/Loading';
 import Layout from 'components/question/Layout';
 import ProgressBar from 'components/question/ProgressBar';
 import QuestionFunnel from 'components/question/QuestionFunnel';
+import usePostMessage from 'hooks/apis/usePostMessage';
 import { useFunnel } from 'hooks/useFunnel';
-import usePostMessage from 'hooks/usePostMessage';
 
 export const STEPS = [
   '사용자이름',
