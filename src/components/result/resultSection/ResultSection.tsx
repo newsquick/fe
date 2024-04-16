@@ -1,4 +1,4 @@
-import EditIcon from 'assets/images/edit.svg?react';
+import EditIcon from 'assets/svg/edit.svg?react';
 import CopyToClipboardButton from 'components/result/resultSection/ClipboardButton';
 import ResultHeader from 'components/result/resultSection/ResultHeader';
 import ResultRetryButton from 'components/result/resultSection/ResultRetryButton';

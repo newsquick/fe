@@ -1,4 +1,4 @@
-import Logo from 'assets/images/logo.svg?react';
+import Logo from 'assets/svg/logo.svg?react';
 
 const HEADER_HEIGHT = 64;
 const BUTTON_HEIGHT = 55;

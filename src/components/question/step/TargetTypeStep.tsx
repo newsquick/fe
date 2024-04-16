@@ -1,4 +1,4 @@
-import FlowerIcon from 'assets/images/flower.svg?react';
+import FlowerIcon from 'assets/svg/flower.svg?react';
 
 import QuestionTitle from '../QuestionTitle';
 

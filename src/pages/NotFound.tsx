@@ -1,4 +1,4 @@
-import ErrorAvatar from 'assets/images/error-avatar.svg?react';
+import ErrorAvatar from 'assets/svg/error-avatar.svg?react';
 import Layout from 'components/common/Layout';
 import NavigateButton from 'components/common/NavigateButton';
 

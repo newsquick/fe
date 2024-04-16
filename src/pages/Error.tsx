@@ -1,4 +1,4 @@
-import ErrorAvatar from 'assets/images/error-avatar.svg?react';
+import ErrorAvatar from 'assets/svg/error-avatar.svg?react';
 import NavigateButton from 'components/common/NavigateButton';
 
 const TITLE = '일시적인 오류가 발생했습니다';

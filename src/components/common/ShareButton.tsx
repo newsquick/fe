@@ -1,4 +1,4 @@
-import ShareIcon from 'assets/images/share.svg?react';
+import ShareIcon from 'assets/svg/share.svg?react';
 
 type Props = {
   url: string;

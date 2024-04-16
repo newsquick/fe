@@ -1,4 +1,4 @@
-import TriangleIcon from 'assets/images/triangle.svg?react';
+import TriangleIcon from 'assets/svg/triangle.svg?react';
 
 import QuestionTitle from '../QuestionTitle';
 
