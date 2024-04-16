@@ -24,6 +24,7 @@
     "sweetalert2": "^11.10.1"
   },
   "devDependencies": {
+    "@hookform/devtools": "^4.3.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/dom-to-image": "^2.6.7",
     "@types/file-saver": "^2.0.7",
