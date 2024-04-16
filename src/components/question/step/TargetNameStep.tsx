@@ -1,5 +1,5 @@
 import Button from 'components/common/Button';
-import useInput from 'hooks/useInput';
+import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
 
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const TargetNameStep = ({ nextStep }: Props) => {
-  const [value, handleChange] = useInput('');
+  const { register } = useFormContext();
 
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col justify-between">
@@ -18,10 +18,10 @@ const TargetNameStep = ({ nextStep }: Props) => {
           className="options-gray500 h-[55px] w-full rounded-[5px] bg-gray100 p-4  text-[17px] tracking-[-0.3px] text-gray900 caret-indigo outline-indigo"
           maxLength={10}
           placeholder="홍길동"
-          onChange={handleChange}
+          {...register('targetName')}
         />
       </div>
-      <Button disabled={value.length === 0} onClick={() => nextStep(value)} data-ga="question_2rd">
+      <Button disabled={register.length === 0} onClick={() => nextStep(register.name)} data-ga="question_2rd">
         다음
       </Button>
     </div>
