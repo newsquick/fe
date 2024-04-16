@@ -4,7 +4,7 @@ import { useFormContext } from 'react-hook-form';
 import QuestionTitle from '../QuestionTitle';
 
 type Props = {
-  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
+  nextStep: () => void;
 };
 
 const TargetNameStep = ({ nextStep }: Props) => {
@@ -21,7 +21,7 @@ const TargetNameStep = ({ nextStep }: Props) => {
           {...register('targetName')}
         />
       </div>
-      <Button disabled={register.length === 0} onClick={() => nextStep(register.name)} data-ga="question_2rd">
+      <Button disabled={register.length === 0} onClick={nextStep} data-ga="question_2rd">
         다음
       </Button>
     </div>

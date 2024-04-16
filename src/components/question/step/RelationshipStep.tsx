@@ -1,4 +1,5 @@
 import CloudIcon from 'assets/svg/cloud.svg?react';
+import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
 
@@ -12,10 +13,12 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
+  nextStep: () => void;
 };
 
 const RelationshipStep = ({ nextStep }: Props) => {
+  const { setValue } = useFormContext();
+
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col">
       <QuestionTitle text={'축사를 받는 사람을\n뭐라고 부르면 좋을까요?'} />
@@ -25,7 +28,10 @@ const RelationshipStep = ({ nextStep }: Props) => {
             <div key={id} className="flex flex-col items-center gap-[9px]">
               <CloudIcon
                 className="cursor-pointer hover:fill-indigo"
-                onClick={() => nextStep(value)}
+                onClick={() => {
+                  setValue('relationship', value);
+                  nextStep();
+                }}
                 data-ga="question_4rd"
                 fill={fill}
               />

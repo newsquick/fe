@@ -1,4 +1,5 @@
 import TriangleIcon from 'assets/svg/triangle.svg?react';
+import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
 
@@ -11,10 +12,12 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
+  nextStep: () => void;
 };
 
 const MinuteStep = ({ nextStep }: Props) => {
+  const { setValue } = useFormContext();
+
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col">
       <QuestionTitle text={'축사를 몇 분으로\n하면 좋을까요?'} />
@@ -25,7 +28,10 @@ const MinuteStep = ({ nextStep }: Props) => {
             className={`custom-hover flex h-[55px] w-full items-center justify-items-start rounded-[5px] bg-gray100 p-[13px] py-6  text-gray900 ${
               value === '3분' ? 'relative' : ''
             }`}
-            onClick={() => nextStep(value)}
+            onClick={() => {
+              setValue('minute', value);
+              nextStep();
+            }}
             data-ga="question_5th"
           >
             {value}

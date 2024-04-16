@@ -1,14 +1,14 @@
 import Button from 'components/common/Button';
-import useInput from 'hooks/useInput';
+import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
 
 type Props = {
-  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
+  nextStep: () => void;
 };
 
 const StoryStep = ({ nextStep }: Props) => {
-  const [value, handleChange] = useInput('');
+  const { register } = useFormContext();
 
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col justify-between">
@@ -21,15 +21,15 @@ const StoryStep = ({ nextStep }: Props) => {
               id="textarea"
               maxLength={400}
               placeholder="ex. 매일같이 학교 앞에서 떡볶이 사먹으며 친하게 지냈었다."
-              onChange={handleChange}
+              {...register('story')}
             />
             <span className="absolute bottom-2.5 right-3.5 mt-[30px]  text-[14px] tracking-[-0.3px] text-gray400">
-            {value.length}/400자
+              0/400자
             </span>
           </div>
         </label>
       </div>
-      <Button disabled={value.length === 0} onClick={() => nextStep(value)} ga="question_8th">
+      <Button onClick={nextStep} ga="question_8th">
         다음
       </Button>
     </div>
@@ -37,3 +37,14 @@ const StoryStep = ({ nextStep }: Props) => {
 };
 
 export default StoryStep;
+
+/* 
+              {value.length}/400자
+            </span>
+          </div>
+        </label>
+      </div>
+      <Button disabled={value.length === 0} onClick={nextStep} ga="question_8th">
+        다음
+
+*/

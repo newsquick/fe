@@ -24,7 +24,6 @@ const Question = () => {
   const { isLoading, handlePost } = usePostMessage();
   const { Funnel, Step, currentStep, setStep } = useFunnel(STEPS[0]);
   const stepNum = STEPS.indexOf(currentStep) + 1;
-  console.log(currentStep);
 
   return (
     <>
@@ -32,7 +31,7 @@ const Question = () => {
         <Loading />
       ) : (
         <Layout>
-          <Header onPrev={() => setStep(STEPS[stepNum - 1])} />
+          <Header onPrev={() => setStep(STEPS[stepNum - 2])} />
           <ProgressBar currentStep={stepNum} />
           <FormProvider {...methods}>
             <QuestionFunnel steps={STEPS} Funnel={Funnel} Step={Step} setStep={setStep} onPost={handlePost} />

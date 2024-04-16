@@ -1,9 +1,10 @@
 import FlowerIcon from 'assets/svg/flower.svg?react';
+import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
 
 type Props = {
-  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
+  nextStep: () => void;
 };
 
 const BUTTON_VALUE = [
@@ -12,6 +13,8 @@ const BUTTON_VALUE = [
 ];
 
 const TargetTypeStep = ({ nextStep }: Props) => {
+  const { setValue } = useFormContext();
+
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col">
       <QuestionTitle text={'축사를 받을 사람은\n신랑인가요, 신부인가요?'} />
@@ -20,7 +23,10 @@ const TargetTypeStep = ({ nextStep }: Props) => {
           <button
             key={id}
             className="custom-hover flex h-[187px] w-full flex-col items-center justify-between rounded-[5px] bg-gray-100 py-6 "
-            onClick={() => nextStep(value)}
+            onClick={() => {
+              setValue('targetType', value);
+              nextStep();
+            }}
             data-ga="question_3rd"
           >
             <FlowerIcon fill={fill} />

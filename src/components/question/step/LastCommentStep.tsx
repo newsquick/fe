@@ -1,14 +1,10 @@
 import Button from 'components/common/Button';
-import useInput from 'hooks/useInput';
+import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
 
-type Props = {
-  onSubmit: (value: string) => void; // eslint-disable-line no-unused-vars
-};
-
-const LastCommentStep = ({ onSubmit }: Props) => {
-  const [value, handleChange] = useInput('');
+const LastCommentStep = () => {
+  const { register } = useFormContext();
 
   return (
     <>
@@ -22,17 +18,15 @@ const LastCommentStep = ({ onSubmit }: Props) => {
                 id="textarea"
                 maxLength={400}
                 placeholder="ex. 행복하게 잘 살아라!"
-                onChange={handleChange}
+                {...register('lastComment')}
               />
               <span className="absolute bottom-2.5 right-3.5 mt-[30px]  text-[14px] tracking-[-0.3px] text-gray400">
-                {value.length}/400자
+                400자
               </span>
             </div>
           </label>
         </div>
-        <Button disabled={value.length === 0} onClick={() => onSubmit(value)} ga="question_9th">
-          내 축사 확인하기
-        </Button>
+        <Button ga="question_9th">내 축사 확인하기</Button>
       </div>
     </>
   );

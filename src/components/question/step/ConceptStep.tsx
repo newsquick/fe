@@ -1,3 +1,5 @@
+import { useFormContext } from 'react-hook-form';
+
 import QuestionTitle from '../QuestionTitle';
 
 const BUTTON_VALUE = [
@@ -9,10 +11,12 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
+  nextStep: () => void;
 };
 
 const ConceptStep = ({ nextStep }: Props) => {
+  const { setValue } = useFormContext();
+
   return (
     <div className="flex h-[calc(100%-84px)] w-full flex-col">
       <QuestionTitle text={'축사의 컨셉은\n무엇인가요?'} />
@@ -21,7 +25,10 @@ const ConceptStep = ({ nextStep }: Props) => {
           <button
             key={id}
             className="custom-hover flex h-[55px] w-full items-center justify-items-start rounded-[5px] bg-gray100 p-[13px] py-6  text-gray900"
-            onClick={() => nextStep(value)}
+            onClick={() => {
+              setValue('concept', value);
+              nextStep();
+            }}
             data-ga="question_7th"
           >
             {value}
