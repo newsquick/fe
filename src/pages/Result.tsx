@@ -14,7 +14,7 @@ const Result = () => {
         <Loading isRenew={true} />
       ) : (
         <>
-          <ResultSection answer={answer} onRetry={() => handlePost(answer)} />
+          <ResultSection onRetry={() => handlePost(answer)} />
           <SpeechCautionSection />
         </>
       )}

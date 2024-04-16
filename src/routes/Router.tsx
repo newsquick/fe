@@ -6,6 +6,7 @@ import NotFound from 'pages/NotFound';
 import Onboarding from 'pages/Onboarding';
 import Question from 'pages/Question';
 import Result from 'pages/Result';
+import Share from 'pages/Share';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Root from './Root';
@@ -22,6 +23,7 @@ const Router = () => {
         { path: ROUTES_PATH.question, element: <Question /> },
         { path: ROUTES_PATH.result, element: <Result /> },
         { path: ROUTES_PATH.edit, element: <Edit /> },
+        { path: ROUTES_PATH.share, element: <Share /> },
         { path: ROUTES_PATH.error, element: <Error /> },
       ],
     },
