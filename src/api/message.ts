@@ -5,9 +5,9 @@ import { axiosInstance } from './config';
 export const MessageApi = {
   GET: async (id: string) => {
     const { data } = await axiosInstance.get<{ data: MessageGetResponse }>(`/api/message/${id}`);
-    const { resultData } = data.data;
+    const { resultData, userName } = data.data;
 
-    return resultData;
+    return { resultData, userName };
   },
 
   POST: async (answerData: AnswerData): Promise<string> => {
