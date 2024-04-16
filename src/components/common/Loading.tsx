@@ -1,5 +1,5 @@
-import LoadingAvatar from 'assets/images/loading-avatar.svg?react';
-import RenewAvatar from 'assets/images/renew-avatar.svg?react';
+import LoadingAvatar from 'assets/svg/loading-avatar.svg?react';
+import RenewAvatar from 'assets/svg/renew-avatar.svg?react';
 import { CAUTION_LIST } from 'constants/index';
 import { useNavigate } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';

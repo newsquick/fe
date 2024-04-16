@@ -3,7 +3,7 @@ import EditSection from 'components/edit/EditSection';
 import Layout from 'components/edit/Layout';
 import ResultTitle from 'components/result/resultSection/ResultTitle';
 import useInput from 'hooks/useInput';
-import usePutMessage from 'hooks/usePutMessage';
+import usePutMessage from 'hooks/apis/usePutMessage';
 import { useLocation } from 'react-router-dom';
 
 const Edit = () => {

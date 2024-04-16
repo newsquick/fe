@@ -1,4 +1,4 @@
-import EditIcon from 'assets/images/edit.svg?react';
+import EditIcon from 'assets/svg/edit.svg?react';
 import { Link } from 'react-router-dom';
 
 const ResultContentBox = ({ children }: ChildrenProps) => {

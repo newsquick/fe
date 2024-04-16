@@ -1,4 +1,4 @@
-import CloudIcon from 'assets/images/cloud.svg?react';
+import CloudIcon from 'assets/svg/cloud.svg?react';
 
 import QuestionTitle from '../QuestionTitle';
 

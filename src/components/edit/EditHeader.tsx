@@ -1,4 +1,4 @@
-import ChevronIcon from 'assets/images/chevron-left.svg?react';
+import ChevronIcon from 'assets/svg/chevron-left.svg?react';
 import { useNavigate } from 'react-router-dom';
 
 type Props = {

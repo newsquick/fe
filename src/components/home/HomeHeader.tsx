@@ -1,9 +1,13 @@
 import ShareButton from '../common/ShareButton';
 
-const HomeHeader = () => {
+type Props = {
+  shareUrl: string;
+};
+
+const HomeHeader = ({ shareUrl }: Props) => {
   return (
     <div className="flex h-16 w-full items-center justify-end">
-      <ShareButton />
+      <ShareButton url={shareUrl} />
     </div>
   );
 };
