@@ -4,5 +4,6 @@ export const ROUTES_PATH = {
   question: '/question',
   result: '/result/:id',
   edit: '/edit',
+  share: '/share/:id',
   error: '/error',
 } as const;
