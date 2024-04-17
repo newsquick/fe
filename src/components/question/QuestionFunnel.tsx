@@ -11,70 +11,37 @@ import TargetTypeStep from './step/TargetTypeStep';
 import UserNameStep from './step/UserNameStep';
 
 export interface Props {
-  steps: string[];
   Funnel: React.ComponentType<FunnelProps>;
   Step: React.ComponentType<StepProps>;
-  setStep: React.Dispatch<React.SetStateAction<string>>;
+  nextStep: () => void;
 }
 
-const QuestionFunnel = ({ steps, Funnel, Step, setStep }: Props) => {
+const QuestionFunnel = ({ Funnel, Step, nextStep }: Props) => {
   return (
     <Funnel>
       <Step name="사용자이름">
-        <UserNameStep
-          nextStep={() => {
-            setStep(steps[1]);
-          }}
-        />
+        <UserNameStep nextStep={nextStep} />
       </Step>
       <Step name="대상자이름">
-        <TargetNameStep
-          nextStep={() => {
-            setStep(steps[2]);
-          }}
-        />
+        <TargetNameStep nextStep={nextStep} />
       </Step>
       <Step name="대상유형">
-        <TargetTypeStep
-          nextStep={() => {
-            setStep(steps[3]);
-          }}
-        />
+        <TargetTypeStep nextStep={nextStep} />
       </Step>
       <Step name="관계">
-        <RelationshipStep
-          nextStep={() => {
-            setStep(steps[4]);
-          }}
-        />
+        <RelationshipStep nextStep={nextStep} />
       </Step>
       <Step name="축사시간">
-        <MinuteStep
-          nextStep={() => {
-            setStep(steps[5]);
-          }}
-        />
+        <MinuteStep nextStep={nextStep} />
       </Step>
       <Step name="말투">
-        <SpeechTypeStep
-          nextStep={() => {
-            setStep(steps[6]);
-          }}
-        />
+        <SpeechTypeStep nextStep={nextStep} />
       </Step>
       <Step name="컨셉">
-        <ConceptStep
-          nextStep={() => {
-            setStep(steps[7]);
-          }}
-        />
+        <ConceptStep nextStep={nextStep} />
       </Step>
       <Step name="이야기">
-        <StoryStep
-          nextStep={() => {
-            setStep(steps[8]);
-          }}
-        />
+        <StoryStep nextStep={nextStep} />
       </Step>
       <Step name="마지막할말">
         <LastCommentStep />
