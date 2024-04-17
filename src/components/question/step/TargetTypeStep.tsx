@@ -23,6 +23,7 @@ const TargetTypeStep = ({ nextStep }: Props) => {
         {BUTTON_VALUE.map(({ id, value, fill }) => (
           <button
             key={id}
+            type="button"
             className="custom-hover flex h-[187px] w-full flex-col items-center justify-between rounded-[5px] bg-gray-100 py-6 "
             onClick={() => {
               setValue('targetType', value);
