@@ -20,7 +20,7 @@ export const STEPS = [
 ];
 
 const Question = () => {
-  const methods = useForm();
+  const methods = useForm<AnswerData>();
   const { isLoading, handlePost } = usePostMessage();
   const { Funnel, Step, currentStep, setStep } = useFunnel(STEPS[0]);
   const stepNum = STEPS.indexOf(currentStep) + 1;
@@ -34,7 +34,9 @@ const Question = () => {
           <Header onPrev={() => setStep(STEPS[stepNum - 2])} />
           <ProgressBar currentStep={stepNum} />
           <FormProvider {...methods}>
-            <QuestionFunnel steps={STEPS} Funnel={Funnel} Step={Step} setStep={setStep} onPost={handlePost} />
+            <form className="h-full" onSubmit={methods.handleSubmit(handlePost)}>
+              <QuestionFunnel steps={STEPS} Funnel={Funnel} Step={Step} setStep={setStep} />
+            </form>
           </FormProvider>
         </Layout>
       )}
