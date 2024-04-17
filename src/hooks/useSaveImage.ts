@@ -1,23 +1,18 @@
-import DomToImage from 'dom-to-image';
-import { saveAs } from 'file-saver';
+import html2canvas from 'html2canvas';
 import { useRef } from 'react';
 
 const useSaveImage = () => {
   const targetRef = useRef<HTMLDivElement>(null);
 
-  const options = {
-    filter: (node: Node) => {
-      return node.nodeName !== 'BUTTON';
-    },
-  };
+  const handleSaveImage = async () => {
+    if (targetRef.current) {
+      const canvas = await html2canvas(targetRef.current, { useCORS: true });
+      const downloadLink = document.createElement('a');
 
-  const handleSaveImage = () => {
-    if (targetRef.current === null) {
-      return;
+      downloadLink.href = canvas.toDataURL('image/jpeg');
+      downloadLink.download = 'bloom.jpg';
+      downloadLink.click();
     }
-    DomToImage.toBlob(targetRef.current, options).then((blob) => {
-      saveAs(blob, 'bloom.png');
-    });
   };
 
   return { targetRef, handleSaveImage };
