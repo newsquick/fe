@@ -1,5 +1,6 @@
 import Loading from 'components/common/Loading';
 import SpeechCautionSection from 'components/common/speechCautionSection/SpeechCautionSection';
+import Footer from 'components/result/Footer';
 import ResultSection from 'components/result/resultSection/ResultSection';
 import usePostMessage from 'hooks/apis/usePostMessage';
 import { useLocation } from 'react-router-dom';
@@ -16,6 +17,7 @@ const Result = () => {
         <>
           <ResultSection onRetry={() => handlePost(answer)} />
           <SpeechCautionSection />
+          <Footer />
         </>
       )}
     </>
