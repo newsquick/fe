@@ -1,6 +1,7 @@
 import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
+import Layout from './Layout';
 
 const BUTTON_VALUE = [
   { id: 1, value: '반말' },
@@ -15,7 +16,7 @@ const SpeechTypeStep = ({ nextStep }: Props) => {
   const { setValue } = useFormContext();
 
   return (
-    <div className="flex h-[calc(100%-84px)] w-full flex-col">
+    <Layout type="button">
       <QuestionTitle text={'축사 말투는\n어떻게 할까요?'} />
       <div className="flex flex-col gap-4">
         {BUTTON_VALUE.map(({ id, value }) => (
@@ -32,7 +33,7 @@ const SpeechTypeStep = ({ nextStep }: Props) => {
           </button>
         ))}
       </div>
-    </div>
+    </Layout>
   );
 };
 

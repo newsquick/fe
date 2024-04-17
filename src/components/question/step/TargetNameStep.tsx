@@ -2,6 +2,7 @@ import Button from 'components/common/Button';
 import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
+import Layout from './Layout';
 
 type Props = {
   nextStep: () => void;
@@ -11,7 +12,7 @@ const TargetNameStep = ({ nextStep }: Props) => {
   const { register } = useFormContext();
 
   return (
-    <div className="flex h-[calc(100%-84px)] w-full flex-col justify-between">
+    <Layout>
       <div>
         <QuestionTitle text={'축사를 받을 사람의\n이름을 알려 주세요.'} />
         <input
@@ -24,7 +25,7 @@ const TargetNameStep = ({ nextStep }: Props) => {
       <Button disabled={register.length === 0} onClick={nextStep} data-ga="question_2rd">
         다음
       </Button>
-    </div>
+    </Layout>
   );
 };
 

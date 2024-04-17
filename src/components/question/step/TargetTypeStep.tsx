@@ -2,6 +2,7 @@ import FlowerIcon from 'assets/svg/flower.svg?react';
 import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
+import Layout from './Layout';
 
 type Props = {
   nextStep: () => void;
@@ -16,7 +17,7 @@ const TargetTypeStep = ({ nextStep }: Props) => {
   const { setValue } = useFormContext();
 
   return (
-    <div className="flex h-[calc(100%-84px)] w-full flex-col">
+    <Layout type="button">
       <QuestionTitle text={'축사를 받을 사람은\n신랑인가요, 신부인가요?'} />
       <div className="flex justify-between gap-3">
         {BUTTON_VALUE.map(({ id, value, fill }) => (
@@ -34,7 +35,7 @@ const TargetTypeStep = ({ nextStep }: Props) => {
           </button>
         ))}
       </div>
-    </div>
+    </Layout>
   );
 };
 

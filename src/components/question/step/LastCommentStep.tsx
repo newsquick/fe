@@ -2,13 +2,14 @@ import Button from 'components/common/Button';
 import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
+import Layout from './Layout';
 
 const LastCommentStep = () => {
   const { register } = useFormContext();
 
   return (
     <>
-      <div className="flex h-[calc(100%-84px)] w-full flex-col justify-between">
+      <Layout>
         <div>
           <QuestionTitle text={'축사에서 마지막으로 하고\n싶은 말이 있다면 알려 주세요.'} />
           <label className="relative flex flex-col gap-3" htmlFor="textarea">
@@ -26,8 +27,10 @@ const LastCommentStep = () => {
             </div>
           </label>
         </div>
-        <Button ga="question_9th">내 축사 확인하기</Button>
-      </div>
+        <Button type="submit" ga="question_9th">
+          내 축사 확인하기
+        </Button>
+      </Layout>
     </>
   );
 };

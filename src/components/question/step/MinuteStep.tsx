@@ -2,6 +2,7 @@ import TriangleIcon from 'assets/svg/triangle.svg?react';
 import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
+import Layout from './Layout';
 
 const BUTTON_VALUE = [
   { id: 1, value: '2분' },
@@ -19,7 +20,7 @@ const MinuteStep = ({ nextStep }: Props) => {
   const { setValue } = useFormContext();
 
   return (
-    <div className="flex h-[calc(100%-84px)] w-full flex-col">
+    <Layout type="button">
       <QuestionTitle text={'축사를 몇 분으로\n하면 좋을까요?'} />
       <div className="flex flex-col gap-4">
         {BUTTON_VALUE.map(({ id, value }) => (
@@ -44,7 +45,7 @@ const MinuteStep = ({ nextStep }: Props) => {
           </button>
         ))}
       </div>
-    </div>
+    </Layout>
   );
 };
 

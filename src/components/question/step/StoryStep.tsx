@@ -2,6 +2,7 @@ import Button from 'components/common/Button';
 import { useFormContext } from 'react-hook-form';
 
 import QuestionTitle from '../QuestionTitle';
+import Layout from './Layout';
 
 type Props = {
   nextStep: () => void;
@@ -11,7 +12,7 @@ const StoryStep = ({ nextStep }: Props) => {
   const { register } = useFormContext();
 
   return (
-    <div className="flex h-[calc(100%-84px)] w-full flex-col justify-between">
+    <Layout>
       <div>
         <QuestionTitle text={'축사 중간에 들어갈 재밌는\n에피소드가 있다면 알려 주세요.'} />
         <label className="relative flex flex-col gap-3" htmlFor="textarea">
@@ -32,7 +33,7 @@ const StoryStep = ({ nextStep }: Props) => {
       <Button onClick={nextStep} ga="question_8th">
         다음
       </Button>
-    </div>
+    </Layout>
   );
 };
 
