@@ -25,7 +25,7 @@ const Textarea = ({ register, error, id, maxLength, counter, ...rest }: Props) =
           </span>
         </div>
       </label>
-      {error && <p>{error}</p>}
+      {error && <p className="ml-1 mt-1 text-sm text-red-500">{error}</p>}
     </>
   );
 };
