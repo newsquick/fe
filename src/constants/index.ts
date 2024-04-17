@@ -1,3 +1,15 @@
+export const QUESTION_STEPS = [
+  '사용자이름',
+  '대상자이름',
+  '대상유형',
+  '관계',
+  '축사시간',
+  '말투',
+  '컨셉',
+  '이야기',
+  '마지막할말',
+];
+
 export const ONBOARDING_SLIDES = [
   {
     image: '/assets/onboarding_1.webp',

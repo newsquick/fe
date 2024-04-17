@@ -1,6 +1,8 @@
 import TriangleIcon from 'assets/svg/triangle.svg?react';
+import { useGenericFormContext } from 'contexts/GenericFormContex';
 
 import QuestionTitle from '../QuestionTitle';
+import Layout from './Layout';
 
 const BUTTON_VALUE = [
   { id: 1, value: '2분' },
@@ -11,21 +13,27 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
+  nextStep: () => void;
 };
 
 const MinuteStep = ({ nextStep }: Props) => {
+  const { setValue } = useGenericFormContext();
+
   return (
-    <div className="flex h-[calc(100%-84px)] w-full flex-col">
+    <Layout type="button">
       <QuestionTitle text={'축사를 몇 분으로\n하면 좋을까요?'} />
       <div className="flex flex-col gap-4">
         {BUTTON_VALUE.map(({ id, value }) => (
           <button
             key={id}
+            type="button"
             className={`custom-hover flex h-[55px] w-full items-center justify-items-start rounded-[5px] bg-gray100 p-[13px] py-6  text-gray900 ${
               value === '3분' ? 'relative' : ''
             }`}
-            onClick={() => nextStep(value)}
+            onClick={() => {
+              setValue('minute', value);
+              nextStep();
+            }}
             data-ga="question_5th"
           >
             {value}
@@ -38,7 +46,7 @@ const MinuteStep = ({ nextStep }: Props) => {
           </button>
         ))}
       </div>
-    </div>
+    </Layout>
   );
 };
 
