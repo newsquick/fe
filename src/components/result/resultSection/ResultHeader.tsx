@@ -10,11 +10,17 @@ const ResultHeader = ({ shareUrl }: Props) => {
   return (
     <div className="flex h-16 w-full items-center justify-between">
       <Link to={'/question'}>
-        <button className="flex h-6 w-6 items-center justify-start" data-ga="header_back">
+        <button
+          className="flex h-6 w-6 items-center justify-start"
+          data-ga="header_back"
+          data-html2canvas-ignore="true"
+        >
           <ChevronIcon />
         </button>
       </Link>
-      <ShareButton url={shareUrl} />
+      <div data-html2canvas-ignore="true">
+        <ShareButton url={shareUrl} />
+      </div>
     </div>
   );
 };

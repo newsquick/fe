@@ -26,7 +26,7 @@ const ResultSection = ({ onRetry }: Props) => {
         <span className="whitespace-pre-line text-[15px] leading-[170%] tracking-[-0.6px] text-gray800">
           {result}
         </span>
-        <div className="float-right mt-[17px]">
+        <div className="float-right mt-[17px]" data-html2canvas-ignore="true">
           <Link
             to="/edit"
             state={{
@@ -41,7 +41,7 @@ const ResultSection = ({ onRetry }: Props) => {
           </Link>
         </div>
       </div>
-      <div className="flex w-full gap-2">
+      <div className="flex w-full gap-2" data-html2canvas-ignore="true">
         <SaveImageButton onSave={handleSaveImage} />
         <CopyToClipboardButton copyText={result} />
       </div>
