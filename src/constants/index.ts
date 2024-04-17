@@ -1,100 +1,37 @@
-export const QUESTION_LIST = [
+export const QUESTION_STEPS = [
+  '사용자이름',
+  '대상자이름',
+  '대상유형',
+  '관계',
+  '축사시간',
+  '말투',
+  '컨셉',
+  '이야기',
+  '마지막할말',
+];
+
+export const ONBOARDING_SLIDES = [
   {
-    id: 1,
-    question: '축사를 할 분의\n이름을 알려 주세요.',
-    field: 'userName',
-    type: 'input',
-    options: 'ex. 홍길동',
-    ga: 'question_1st_next',
+    image: '/assets/onboarding_1.webp',
+    description: {
+      title: '막막한 축사 준비를 손쉽게',
+      subTitle: '소중한 사람의 축복을 위해 진심을 전할 수 있도록\nAI가 맞춤형 축사 문장을 바로 생성해 줘요.',
+    },
+  },
+
+  {
+    image: '/assets/onboarding_2.webp',
+    description: {
+      title: '축사 주의사항도 미리 살펴보세요',
+      subTitle: '축사가 막막하게 느껴진다면, 주의사항을\n미리 살펴보고 걱정을 덜어보세요.',
+    },
   },
   {
-    id: 2,
-    question: '축사를 받을 분의\n이름을 알려 주세요.',
-    field: 'targetName',
-    type: 'input',
-    options: 'ex. 홍길동',
-    ga: 'question_2nd',
-  },
-  {
-    id: 3,
-    question: '축사를 받을 사람은\n신랑인가요, 신부인가요?',
-    field: 'targetType',
-    type: 'avatar-card',
-    options: [
-      { id: 1, value: '신랑', fill: '#AEC9FF' },
-      { id: 2, value: '신부', fill: '#FB5500' },
-    ],
-    ga: 'question_3rd',
-  },
-  {
-    id: 4,
-    question: '축사를 받는 사람을\n뭐라고 부르면 좋을까요?',
-    field: 'relationship',
-    type: 'avatar-button',
-    options: [
-      { id: 1, value: '친구', fill: '#C9F4B4' },
-      { id: 2, value: '오빠', fill: '#D6E3FF' },
-      { id: 3, value: '언니', fill: '#F96E47' },
-      { id: 4, value: '동생', fill: '#D1CEFF' },
-      { id: 5, value: '형', fill: '#AEC9FF' },
-      { id: 6, value: '누나', fill: '#E991FB' },
-    ],
-    ga: 'question_4rd',
-  },
-  {
-    id: 5,
-    question: '축사를 몇 분으로\n하면 좋을까요?',
-    field: 'minute',
-    type: 'primary-button',
-    options: [
-      { id: 1, value: '2분' },
-      { id: 2, value: '3분' },
-      { id: 3, value: '4분' },
-      { id: 4, value: '5분' },
-      { id: 5, value: '6분' },
-    ],
-    ga: 'question_5th',
-  },
-  {
-    id: 6,
-    question: '축사 말투는\n어떻게 할까요?',
-    field: 'speechType',
-    type: 'primary-button',
-    options: [
-      { id: 1, value: '반말' },
-      { id: 2, value: '존댓말' },
-    ],
-    ga: 'question_6th',
-  },
-  {
-    id: 7,
-    question: '축사의 컨셉은\n무엇인가요?',
-    field: 'concept',
-    type: 'primary-button',
-    options: [
-      { id: 1, value: '감동' },
-      { id: 2, value: '행복' },
-      { id: 3, value: '재치' },
-      { id: 4, value: '차분' },
-      { id: 5, value: '눈물' },
-    ],
-    ga: 'question_7th',
-  },
-  {
-    id: 8,
-    question: '축사 중간에 들어갈 재밌는\n에피소드가 있다면 알려 주세요.',
-    field: 'story',
-    type: 'textarea',
-    options: 'ex. 매일같이 학교 앞에서 떡볶이 사먹으며 친하게 지냈었다.',
-    ga: 'question_8th',
-  },
-  {
-    id: 9,
-    question: '축사에서 마지막으로 하고\n싶은 말이 있다면 알려 주세요.',
-    field: 'lastComment',
-    type: 'textarea',
-    options: 'ex. 행복하게 잘 살아라!',
-    ga: 'question_9th',
+    image: '/assets/onboarding_3.webp',
+    description: {
+      title: '뻔하지 않은, 진심을 담은 축사',
+      subTitle: '내 상황에 맞춰, 단 하나밖에 없는\n축사 문장을 만들어 드려요.',
+    },
   },
 ];
 

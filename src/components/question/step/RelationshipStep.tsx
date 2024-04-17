@@ -1,6 +1,8 @@
-import CloudIcon from 'assets/images/cloud.svg?react';
+import CloudIcon from 'assets/svg/cloud.svg?react';
+import { useGenericFormContext } from 'contexts/GenericFormContex';
 
 import QuestionTitle from '../QuestionTitle';
+import Layout from './Layout';
 
 const BUTTON_VALUE = [
   { id: 1, value: '친구', fill: '#C9F4B4' },
@@ -12,12 +14,14 @@ const BUTTON_VALUE = [
 ];
 
 type Props = {
-  nextStep: (value: string) => void; // eslint-disable-line no-unused-vars
+  nextStep: () => void;
 };
 
 const RelationshipStep = ({ nextStep }: Props) => {
+  const { setValue } = useGenericFormContext();
+
   return (
-    <div className="flex h-[calc(100%-84px)] w-full flex-col">
+    <Layout type="button">
       <QuestionTitle text={'축사를 받는 사람을\n뭐라고 부르면 좋을까요?'} />
       <div className="grid grid-cols-4 grid-rows-2 gap-x-4 gap-y-7">
         {BUTTON_VALUE.map(({ id, value, fill }) => {
@@ -25,7 +29,10 @@ const RelationshipStep = ({ nextStep }: Props) => {
             <div key={id} className="flex flex-col items-center gap-[9px]">
               <CloudIcon
                 className="cursor-pointer hover:fill-indigo"
-                onClick={() => nextStep(value)}
+                onClick={() => {
+                  setValue('relationship', value);
+                  nextStep();
+                }}
                 data-ga="question_4rd"
                 fill={fill}
               />
@@ -34,7 +41,7 @@ const RelationshipStep = ({ nextStep }: Props) => {
           );
         })}
       </div>
-    </div>
+    </Layout>
   );
 };
 

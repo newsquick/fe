@@ -1,5 +1,5 @@
-import ChevronIcon from 'assets/images/chevron-left.svg?react';
-import CloseIcon from 'assets/images/close.svg?react';
+import ChevronIcon from 'assets/svg/chevron-left.svg?react';
+import CloseIcon from 'assets/svg/close.svg?react';
 import { Link } from 'react-router-dom';
 
 type Props = {

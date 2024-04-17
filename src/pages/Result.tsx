@@ -1,73 +1,23 @@
-import EditIcon from 'assets/images/edit.svg?react';
-import Header from 'components/common/Header';
 import Loading from 'components/common/Loading';
-import CopyToClipboardButton from 'components/result/resultSection/ClipboardButton';
-import ResultRetryButton from 'components/result/resultSection/ResultRetryButton';
-import ResultTitle from 'components/result/resultSection/ResultTitle';
-import SaveImageButton from 'components/result/resultSection/SaveImageButton';
-import SpeechCautionSection from 'components/result/speechCautionSection/SpeechCautionSection';
-import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { MessageApi } from 'src/apis/MessageAPI';
-import { AnswerData } from 'types/index';
+import SpeechCautionSection from 'components/common/speechCautionSection/SpeechCautionSection';
+import Footer from 'components/result/Footer';
+import ResultSection from 'components/result/resultSection/ResultSection';
+import usePostMessage from 'hooks/apis/usePostMessage';
+import { useLocation } from 'react-router-dom';
 
 const Result = () => {
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const [result, setResult] = useState('');
   const { state: answer } = useLocation();
-  const name = answer.userName;
-
-  useEffect(() => {
-    const getResult = async () => {
-      const resultData = await MessageApi.GET(String(id));
-      setResult(resultData);
-    };
-
-    getResult();
-  }, [id]);
-
-  const handleRetry = async (answer: AnswerData) => {
-    setLoading(true);
-    const id = await MessageApi.POST(answer);
-    setLoading(false);
-    navigate(`/result/${id}`, { state: answer });
-  };
+  const { isLoading, handlePost } = usePostMessage();
 
   return (
     <>
-      {loading ? (
+      {isLoading ? (
         <Loading isRenew={true} />
       ) : (
         <>
-          <div className="flex flex-col items-center px-6 bg-cover bg-gradient">
-            <Header />
-            <ResultTitle name={name} />
-            <div className="mb-5 w-full rounded-[10px] border border-white border-opacity-60 bg-white bg-opacity-50 bg-clip-padding px-[26px] pb-[26px] pt-[29px] backdrop-blur-sm backdrop-filter">
-              <span className="whitespace-pre-line text-[15px] leading-[170%] tracking-[-0.6px] text-gray800">
-                {result}
-              </span>
-              <div className="float-right mt-[17px]">
-                <Link
-                  to="/edit"
-                  state={{
-                    id: id,
-                    result: result,
-                  }}
-                >
-                  <EditIcon />
-                </Link>
-              </div>
-            </div>
-            <div className="flex w-full gap-2">
-              <SaveImageButton />
-              <CopyToClipboardButton copyText={result} />
-            </div>
-            <ResultRetryButton retryResult={() => handleRetry(answer)} />
-          </div>
-
+          <ResultSection onRetry={() => handlePost(answer)} />
           <SpeechCautionSection />
+          <Footer />
         </>
       )}
     </>

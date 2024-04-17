@@ -1,4 +1,4 @@
-import ResultAvatar from 'assets/images/result-avatar.svg?react';
+import ResultAvatar from 'assets/svg/result-avatar.svg?react';
 
 type Props = {
   name: string;

@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 
 type Props = {
-  children: string;
   path: keyof typeof ROUTES_PATH;
+  text: string;
   ga?: string;
 };
 
-const NavigateButton = ({ children, path, ga }: Props) => {
+const NavigateButton = ({ path, text, ga }: Props) => {
   return (
     <Link to={ROUTES_PATH[path]}>
-      <Button ga={ga}>{children}</Button>
+      <Button ga={ga}>{text}</Button>
     </Link>
   );
 };
