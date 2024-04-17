@@ -5,7 +5,7 @@ type Props = {
 
 const Layout = ({ type = 'input', children }: Props) => {
   return (
-    <div className={`flex h-[calc(100%-84px)] w-full flex-col ${type === 'input' ? 'justify-between' : ''}`}>
+    <div className={`flex h-full w-full flex-col ${type === 'input' ? 'justify-between' : ''}`}>
       {children}
     </div>
   );
