@@ -1,5 +1,5 @@
 import TriangleIcon from 'assets/svg/triangle.svg?react';
-import { useFormContext } from 'react-hook-form';
+import { useGenericFormContext } from 'contexts/GenericFormContex';
 
 import QuestionTitle from '../QuestionTitle';
 import Layout from './Layout';
@@ -17,7 +17,7 @@ type Props = {
 };
 
 const MinuteStep = ({ nextStep }: Props) => {
-  const { setValue } = useFormContext();
+  const { setValue } = useGenericFormContext();
 
   return (
     <Layout type="button">
@@ -26,6 +26,7 @@ const MinuteStep = ({ nextStep }: Props) => {
         {BUTTON_VALUE.map(({ id, value }) => (
           <button
             key={id}
+            type="button"
             className={`custom-hover flex h-[55px] w-full items-center justify-items-start rounded-[5px] bg-gray100 p-[13px] py-6  text-gray900 ${
               value === '3분' ? 'relative' : ''
             }`}

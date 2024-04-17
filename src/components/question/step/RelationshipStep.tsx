@@ -1,5 +1,5 @@
 import CloudIcon from 'assets/svg/cloud.svg?react';
-import { useFormContext } from 'react-hook-form';
+import { useGenericFormContext } from 'contexts/GenericFormContex';
 
 import QuestionTitle from '../QuestionTitle';
 import Layout from './Layout';
@@ -18,7 +18,7 @@ type Props = {
 };
 
 const RelationshipStep = ({ nextStep }: Props) => {
-  const { setValue } = useFormContext();
+  const { setValue } = useGenericFormContext();
 
   return (
     <Layout type="button">
