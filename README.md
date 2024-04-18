@@ -36,11 +36,12 @@ https://github.com/with-Bloom/bloom-fe/assets/115215178/87a7d7f4-e073-4ebd-8757-
 <img src="https://img.shields.io/badge/React-3A3A3A?style=for-the-badge&logo=React&logoColor=61DAFB"/>
 <img src="https://img.shields.io/badge/TypeScript-3A3A3A?style=for-the-badge&logo=typescript&logoColor=3178C6"/>
 <img src="https://img.shields.io/badge/Tailwind-3A3A3A?style=for-the-badge&logo=TailwindCSS&logoColor=06B6D4">
-<img src="https://img.shields.io/badge/ESlint-3A3A3A?style=for-the-badge&logo=eslint&logoColor=6E4FFF">
-<img src="https://img.shields.io/badge/Prettier-3A3A3A?style=for-the-badge&logo=prettier&logoColor=F7B93E">
+<img src="https://img.shields.io/badge/React Hook Form-3A3A3A?style=for-the-badge&logo=React-Hook-Form&logoColor=FF68A1">
 <img src="https://img.shields.io/badge/Vite-3A3A3A?style=for-the-badge&logo=vite&logoColor=646CFF">
 <img src="https://img.shields.io/badge/Axios-3A3A3A?style=for-the-badge&logo=axios&logoColor=8D65FF">
 <img src="https://img.shields.io/badge/Netlify-3A3A3A?style=for-the-badge&logo=netlify&logoColor=00C7B7">
+<img src="https://img.shields.io/badge/ESlint-3A3A3A?style=for-the-badge&logo=eslint&logoColor=6E4FFF">
+<img src="https://img.shields.io/badge/Prettier-3A3A3A?style=for-the-badge&logo=prettier&logoColor=F7B93E">
 </div>
 
 <br><br>

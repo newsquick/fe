@@ -1,6 +1,7 @@
 import LoadingAvatar from 'assets/svg/loading-avatar.svg?react';
 import RenewAvatar from 'assets/svg/renew-avatar.svg?react';
 import { CAUTION_LIST } from 'constants/index';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
 import { getRandomText } from 'utils/index';
@@ -15,7 +16,15 @@ const SUB_TITLE = '잠시만 기다려 주세요';
 
 const Loading = ({ isRenew = false }: Props) => {
   const TITLE = isRenew ? '축사를 다시 작성하고 있어요!' : '축사를 작성하고 있어요!';
-  const randomCaution = getRandomText(CAUTION_LIST);
+  const [randomCaution, setRandomCaution] = useState(getRandomText(CAUTION_LIST));
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setRandomCaution(getRandomText(CAUTION_LIST));
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  });
 
   const navigate = useNavigate();
   const handleClick = () => {
