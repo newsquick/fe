@@ -9,7 +9,7 @@ const EditHeader = ({ onUpdate }: Props) => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex h-16 w-full items-center justify-between">
+    <div className="mb-6 flex h-16 w-full items-center justify-between">
       <button
         className="flex h-6 w-6 items-center justify-start"
         onClick={() => navigate(-1)}
