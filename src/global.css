@@ -39,15 +39,11 @@
     height: 100%;
     background-color: rgb(241 245 249);
   }
-
-  input {
-    -webkit-appearance: none;
-  }
 }
 
 .custom-hover:hover {
   background-color: #e9edff;
-  outline: 2px solid #7990f6;
+  outline: 1.8px solid #7990f6;
 }
 
 .swal2-container {
