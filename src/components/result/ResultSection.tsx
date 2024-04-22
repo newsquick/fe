@@ -43,7 +43,7 @@ const ResultSection = ({ onRetry }: Props) => {
       </div>
       <div className="flex w-full gap-2" data-html2canvas-ignore="true">
         <SaveImageButton onSave={handleSaveImage} />
-        <CopyToClipboardButton copyText={result} />
+        <CopyToClipboardButton />
       </div>
       <ResultRetryButton retryResult={onRetry} />
     </div>
