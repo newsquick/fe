@@ -23,7 +23,7 @@ export default {
         'fade-in-out': {
           '0%': { opacity: 0 },
           '25%': { opacity: 1 },
-          '90%': { opacity: 1 },
+          '85%': { opacity: 1 },
           '100%': { opacity: 0 },
         },
       },
