@@ -22,7 +22,7 @@ const defaultValues: AnswerData = {
 export const GenericFormProvider = ({ children, onSubmit }: Props) => {
   const methods = useForm<AnswerData>({
     defaultValues: defaultValues,
-    mode: 'onChange',
+    mode: 'onBlur',
     shouldFocusError: false,
   });
 
