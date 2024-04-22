@@ -1,4 +1,4 @@
-import ResultTitle from 'components/result/resultSection/ResultTitle';
+import ResultTitle from 'components/result/ResultTitle';
 import useGetMessage from 'hooks/apis/useGetMessage';
 import { useParams } from 'react-router-dom';
 

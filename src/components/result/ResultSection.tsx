@@ -1,9 +1,9 @@
 import EditIcon from 'assets/svg/edit.svg?react';
-import CopyToClipboardButton from 'components/result/resultSection/ClipboardButton';
-import ResultHeader from 'components/result/resultSection/ResultHeader';
-import ResultRetryButton from 'components/result/resultSection/ResultRetryButton';
-import ResultTitle from 'components/result/resultSection/ResultTitle';
-import SaveImageButton from 'components/result/resultSection/SaveImageButton';
+import CopyToClipboardButton from 'components/result/ClipboardButton';
+import ResultHeader from 'components/result/ResultHeader';
+import ResultRetryButton from 'components/result/ResultRetryButton';
+import ResultTitle from 'components/result/ResultTitle';
+import SaveImageButton from 'components/result/SaveImageButton';
 import { SERVER_URL } from 'constants/env';
 import useGetMessage from 'hooks/apis/useGetMessage';
 import useSaveImage from 'hooks/useSaveImage';
