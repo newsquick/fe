@@ -10,8 +10,8 @@ const Toast = ({ isShow, message }: Props) => {
     <>
       {isShow && (
         <Portal>
-          <div className="animate-fadeIn animate-fadeOut fixed left-2/4 top-7 translate-x-[-50%]">
-            <div className="animate-fadeInOut flex h-[42px] w-fit items-center justify-center rounded-md bg-gray800 px-[19px]">
+          <div className="fixed left-2/4 top-7 z-50 translate-x-[-50%]">
+            <div className="flex h-[42px] w-[230px] items-center justify-center rounded-md bg-gray800 px-[19px] animate-fadeInOut">
               <p className="font-medium text-white">{message}</p>
             </div>
           </div>
