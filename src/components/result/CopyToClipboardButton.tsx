@@ -1,6 +1,6 @@
 import useToast from 'hooks/useToast';
 
-import Toast from './Toast';
+import Toast from '../common/Toast';
 
 const CopyToClipboardButton = () => {
   const { isShow, handleShowToast } = useToast(3000);

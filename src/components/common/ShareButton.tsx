@@ -1,5 +1,5 @@
 import ShareIcon from 'assets/svg/share.svg?react';
-import Toast from 'components/result/Toast';
+import Toast from 'components/common/Toast';
 import useToast from 'hooks/useToast';
 
 type Props = {
@@ -24,7 +24,7 @@ const ShareButton = ({ url }: Props) => {
 
   return (
     <>
-      <button className="flex items-center justify-end w-6 h-6" onClick={handleShare} data-ga="header_share">
+      <button className="flex h-6 w-6 items-center justify-end" onClick={handleShare} data-ga="header_share">
         <ShareIcon />
       </button>
       <Toast isShow={isShow} message="링크를 성공적으로 복사했어요!" />
