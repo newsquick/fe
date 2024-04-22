@@ -15,7 +15,18 @@ export default {
         gray1000: '#191F28',
         indigo: '#7990F6',
       },
+      animation: {
+        fadeInOut: 'fade-in-out 3s ease-out forwards',
+      },
 
+      keyframes: {
+        'fade-in-out': {
+          '0%': { opacity: 0 },
+          '25%': { opacity: 1 },
+          '90%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      },
       backgroundImage: {
         gradient: 'url("/assets/bg_result.webp")',
       },
