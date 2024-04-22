@@ -1,5 +1,5 @@
 import EditIcon from 'assets/svg/edit.svg?react';
-import CopyToClipboardButton from 'components/result/ClipboardButton';
+import CopyToClipboardButton from 'components/result/CopyToClipboardButton';
 import ResultHeader from 'components/result/ResultHeader';
 import ResultRetryButton from 'components/result/ResultRetryButton';
 import ResultTitle from 'components/result/ResultTitle';
