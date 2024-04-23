@@ -8,10 +8,10 @@ type Props = {
 
 const ResultHeader = ({ shareUrl }: Props) => {
   return (
-    <div className="flex items-center justify-between w-full h-16 mb-6">
+    <div className="mb-6 flex h-16 w-full items-center justify-between">
       <Link to={'/question'}>
         <button
-          className="flex items-center justify-start w-6 h-6"
+          className="flex h-6 w-6 items-center justify-start"
           data-ga="header_back"
           data-html2canvas-ignore="true"
         >

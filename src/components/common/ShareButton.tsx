@@ -16,7 +16,7 @@ const ShareButton = ({ url }: Props) => {
         url: url,
       });
     } else if (navigator.clipboard) {
-      handleShowToast();
+      navigator.clipboard.writeText(url).then(() => handleShowToast());
     } else {
       alert('공유하기가 지원되지 않는 환경 입니다.');
     }
