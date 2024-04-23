@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 const Result = () => {
   const { state: answer } = useLocation();
+  const retryAnswer = { ...answer, isRenew: true };
   const { isLoading, handlePost } = usePostMessage();
 
   return (
@@ -15,7 +16,7 @@ const Result = () => {
         <Loading isRenew={true} />
       ) : (
         <>
-          <ResultSection onRetry={() => handlePost(answer)} />
+          <ResultSection onRetry={() => handlePost(retryAnswer)} />
           <SpeechCautionSection />
           <Footer />
         </>
