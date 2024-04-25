@@ -3,20 +3,22 @@ import { MessageGetResponse, MessagePostResponse } from 'types/api';
 import { axiosInstance } from './config';
 
 export const MessageApi = {
-  GET: async (id: string) => {
-    const { data } = await axiosInstance.get<{ data: MessageGetResponse }>(`/api/message/${id}`);
-    const { resultData, userName } = data.data;
+  GET: async (shareKey: string) => {
+    const { data } = await axiosInstance.get<{ data: MessageGetResponse }>(
+      `/api/message?shareKey=${shareKey}`,
+    );
+    const { messageId, resultData, userName } = data.data;
 
-    return { resultData, userName };
+    return { messageId, resultData, userName };
   },
 
   POST: async (answerData: AnswerData): Promise<string> => {
     const { data } = await axiosInstance.post<{ data: MessagePostResponse }>('/api/message', answerData, {
       headers: { 'Content-Type': 'application/json' },
     });
-    const { messageId } = data.data;
+    const { shareKey } = data.data;
 
-    return messageId;
+    return shareKey;
   },
 
   PUT: async (id: string, updateAnswer: string) => {
