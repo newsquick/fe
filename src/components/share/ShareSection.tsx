@@ -3,8 +3,8 @@ import useGetMessage from 'hooks/apis/useGetMessage';
 import { useParams } from 'react-router-dom';
 
 const ShareSection = () => {
-  const { id } = useParams();
-  const { result, userName } = useGetMessage(String(id));
+  const { shareKey } = useParams();
+  const { result, userName } = useGetMessage(String(shareKey));
 
   return (
     <div className="flex flex-col items-center bg-gradient bg-cover px-6 pt-16">

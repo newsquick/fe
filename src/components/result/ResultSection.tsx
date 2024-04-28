@@ -14,13 +14,14 @@ type Props = {
 };
 
 const ResultSection = ({ onRetry }: Props) => {
-  const { id } = useParams();
-  const { result, userName } = useGetMessage(String(id));
+  const { shareKey } = useParams();
+  console.log(shareKey);
+  const { id, result, userName } = useGetMessage(String(shareKey));
   const { targetRef, handleSaveImage } = useSaveImage();
 
   return (
     <div className="flex flex-col items-center bg-gradient bg-cover px-6" ref={targetRef}>
-      <ResultHeader shareUrl={`${SERVER_URL}/share/${id}`} />
+      <ResultHeader shareUrl={`${SERVER_URL}/share/${shareKey}`} />
       <ResultTitle name={userName} />
       <div className="mb-5 w-full rounded-[10px] border border-white border-opacity-60 bg-white bg-opacity-50 bg-clip-padding px-[26px] pb-[26px] pt-[29px] backdrop-blur-sm backdrop-filter">
         <span className="whitespace-pre-line text-[15px] leading-[170%] tracking-[-0.6px] text-gray800">
