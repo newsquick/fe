@@ -17,19 +17,22 @@ const IMAGE_HEIGHT = `calc(100% - ${TEXT_HEIGHT}px)`;
 
 const Carousel = () => {
   return (
-    <div className="w-full h-full pb-8">
+    <div className="h-full w-full pb-8">
       <Slider {...SLIDER_SETTINGS}>
         {ONBOARDING_SLIDES.map(({ image, description }, index) => (
-          <div key={index} className="flex flex-col items-center justify-center w-full h-full cursor-pointer">
+          <div
+            key={index}
+            className="flex h-full w-full cursor-grab flex-col items-center justify-center active:cursor-grabbing"
+          >
             <div
-              className="w-full bg-no-repeat bg-contain bg-bottom-4"
+              className="bg-bottom-4 w-full bg-contain bg-no-repeat"
               style={{
                 height: IMAGE_HEIGHT,
                 backgroundImage: `url(${image})`,
                 backgroundPosition: 'center',
               }}
             />
-            <div className="flex flex-col justify-between h-20">
+            <div className="flex h-20 flex-col justify-between">
               <p className="text-center text-[23px] font-bold text-gray1000">{description.title}</p>
               <p className="trackimg-[-0.5px] whitespace-pre-line text-center text-[14px] text-gray800">
                 {description.subTitle}
