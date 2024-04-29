@@ -24,7 +24,7 @@ const LastCommentStep = () => {
         <QuestionTitle text={'축사에서 마지막으로 하고\n싶은 말이 있다면 알려 주세요.'} />
         <Textarea
           register={register('lastComment', {
-            required: '마지막 할 말은 필수 입력입니다.',
+            required: '3글자 이상 입력해 주세요.',
             minLength: {
               value: 3,
               message: '3글자 이상 입력해주세요.',

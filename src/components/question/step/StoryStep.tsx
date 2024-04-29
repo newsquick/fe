@@ -28,7 +28,7 @@ const StoryStep = ({ nextStep }: Props) => {
         <QuestionTitle text={'축사 중간에 들어갈 재밌는\n에피소드가 있다면 알려 주세요.'} />
         <Textarea
           register={register('story', {
-            required: '이야기는 필수 입력입니다.',
+            required: '3글자 이상 입력해 주세요.',
             minLength: {
               value: 3,
               message: '3글자 이상 입력해주세요.',
