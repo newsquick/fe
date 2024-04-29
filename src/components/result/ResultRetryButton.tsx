@@ -7,7 +7,7 @@ type Props = {
 
 const modalMessage = {
   title: '축사를 다시 받아보시겠어요?',
-  subTitle: '입력하신 정보로 더 정확한\n축사를 작성해릴게요',
+  subTitle: '입력하신 정보로 더 정확한\n축사를 작성해드릴게요',
 };
 
 const ResultRetryButton = ({ retryResult }: Props) => {
