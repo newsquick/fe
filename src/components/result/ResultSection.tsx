@@ -36,7 +36,7 @@ const ResultSection = ({ onRetry }: Props) => {
               name: userName,
             }}
           >
-            <button>
+            <button data-ga="result_modify">
               <EditIcon />
             </button>
           </Link>

@@ -6,7 +6,7 @@ import Button from './Button';
 type Props = {
   path: keyof typeof ROUTES_PATH;
   text: string;
-  ga?: string;
+  ga: string;
 };
 
 const NavigateButton = ({ path, text, ga }: Props) => {

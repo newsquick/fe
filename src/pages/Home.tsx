@@ -9,7 +9,7 @@ const Home = () => {
     <Layout>
       <HomeHeader shareUrl={SERVER_URL} />
       <Banner />
-      <NavigateButton path="onboarding" text="시작하기" />
+      <NavigateButton path="onboarding" text="시작하기" ga="splash_cta" />
     </Layout>
   );
 };

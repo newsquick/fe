@@ -19,7 +19,7 @@ const ResultHeader = ({ shareUrl }: Props) => {
         </button>
       </Link>
       <div data-html2canvas-ignore="true">
-        <ShareButton url={shareUrl} />
+        <ShareButton url={shareUrl} ga="result_share" />
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ const SaveImageButton = ({ onSave }: Props) => {
     <button
       className="flex h-[55px] w-full items-center justify-center rounded-[10px] bg-white font-bold  text-gray-900"
       onClick={onSave}
+      data-ga="result_download"
     >
       이미지로 저장하기
     </button>

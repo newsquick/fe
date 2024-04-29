@@ -36,7 +36,7 @@ const TargetNameStep = ({ nextStep }: Props) => {
           maxLength={5}
         />
       </div>
-      <Button type="button" onClick={nextStep} disabled={!isValid} data-ga="question_1rd">
+      <Button type="button" onClick={nextStep} disabled={!isValid} ga="question_2nd">
         다음
       </Button>
     </Layout>

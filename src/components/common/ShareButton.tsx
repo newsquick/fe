@@ -4,9 +4,10 @@ import useToast from 'hooks/useToast';
 
 type Props = {
   url: string;
+  ga: string;
 };
 
-const ShareButton = ({ url }: Props) => {
+const ShareButton = ({ url, ga }: Props) => {
   const { isShow, handleShowToast } = useToast(3000);
 
   const handleShare = () => {
@@ -24,7 +25,7 @@ const ShareButton = ({ url }: Props) => {
 
   return (
     <>
-      <button className="flex h-6 w-6 items-center justify-end" onClick={handleShare} data-ga="header_share">
+      <button className="flex h-6 w-6 items-center justify-end" onClick={handleShare} data-ga={ga}>
         <ShareIcon />
       </button>
       <Toast isShow={isShow} message="링크를 성공적으로 복사했어요!" />
