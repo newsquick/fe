@@ -40,7 +40,7 @@ const SaveImageButton = ({ onSave, support }: Props) => {
               '카카오 브라우저에서는 지원하지 않는\n기능이에요 다른 모바일 브라우저\n(Chrome, Safari)를 이용해주세요'
             }
           </Modal.SubTitle>
-          <Modal.ActionButton action={handleCloseModal}>다시 받아보기</Modal.ActionButton>
+          <Modal.ActionButton action={handleCloseModal}>확인</Modal.ActionButton>
         </Modal>
       )}
     </>
