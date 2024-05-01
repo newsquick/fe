@@ -6,17 +6,17 @@ const useSaveImage = () => {
   const [isSupported, setIsSupported] = useState(true);
 
   const handleSaveImage = async () => {
-    if (targetRef.current) {
-      try {
-        const canvas = await html2canvas(targetRef.current, { useCORS: true });
-        const downloadLink = document.createElement('a');
+    if (!targetRef.current) return;
 
-        downloadLink.href = canvas.toDataURL('image/jpeg');
-        downloadLink.download = 'bloom.jpg';
-        downloadLink.click();
-      } catch (error) {
-        setIsSupported(false);
-      }
+    try {
+      const canvas = await html2canvas(targetRef.current, { useCORS: true });
+      const downloadLink = document.createElement('a');
+
+      downloadLink.href = canvas.toDataURL('image/jpeg');
+      downloadLink.download = 'bloom.jpg';
+      downloadLink.click();
+    } catch (error) {
+      setIsSupported(false);
     }
   };
 
