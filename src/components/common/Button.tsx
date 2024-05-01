@@ -1,7 +1,7 @@
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: string;
   disabled?: boolean;
-  ga: string;
+  ga?: string;
   onClick?: any;
 };
 
