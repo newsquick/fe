@@ -15,9 +15,8 @@ type Props = {
 
 const ResultSection = ({ onRetry }: Props) => {
   const { shareKey } = useParams();
-  console.log(shareKey);
   const { id, result, userName } = useGetMessage(String(shareKey));
-  const { targetRef, handleSaveImage } = useSaveImage();
+  const { targetRef, handleSaveImage, isSupported } = useSaveImage();
 
   return (
     <div className="flex flex-col items-center bg-gradient bg-cover px-6" ref={targetRef}>
@@ -43,7 +42,7 @@ const ResultSection = ({ onRetry }: Props) => {
         </div>
       </div>
       <div className="flex w-full gap-2" data-html2canvas-ignore="true">
-        <SaveImageButton onSave={handleSaveImage} />
+        <SaveImageButton onSave={handleSaveImage} support={isSupported} />
         <CopyToClipboardButton copyText={result} />
       </div>
       <ResultRetryButton retryResult={onRetry} />
