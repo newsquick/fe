@@ -18,6 +18,7 @@ const SaveImageButton = ({ onSave, support }: Props) => {
       handleShowToast();
     } else {
       handleShowModal();
+      alert('모달 등장 test');
     }
   };
 
