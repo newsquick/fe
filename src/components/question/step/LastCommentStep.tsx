@@ -33,7 +33,9 @@ const LastCommentStep = () => {
           error={errors.lastComment?.message}
           counter={lastComment.length}
           id="lastComment"
-          placeholder="ex. 행복하게 잘 살아라!"
+          placeholder={
+            '자세히 작성할수록 더 진심이 담긴 축사 문장을\n받아볼 수 있어요. ex: 항상 너의 앞날을 축복할게.\n결혼 축하해!'
+          }
           maxLength={400}
         />
       </div>
