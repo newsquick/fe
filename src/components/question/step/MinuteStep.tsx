@@ -5,11 +5,11 @@ import QuestionTitle from '../QuestionTitle';
 import Layout from './Layout';
 
 const BUTTON_VALUE = [
-  { id: 1, value: '2분' },
-  { id: 2, value: '3분' },
-  { id: 3, value: '4분' },
-  { id: 4, value: '5분' },
-  { id: 5, value: '6분' },
+  { id: 1, value: '1분' },
+  { id: 2, value: '2분' },
+  { id: 3, value: '3분' },
+  { id: 4, value: '4분' },
+  { id: 5, value: '5분' },
 ];
 
 type Props = {
