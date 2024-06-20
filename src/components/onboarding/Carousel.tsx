@@ -17,10 +17,13 @@ const IMAGE_HEIGHT = `calc(100% - ${TEXT_HEIGHT}px)`;
 
 const Carousel = () => {
   return (
-    <div className="h-full w-full pb-16">
+    <div className="h-full w-full pb-8">
       <Slider {...SLIDER_SETTINGS}>
         {ONBOARDING_SLIDES.map(({ image, description }, index) => (
-          <div key={index} className="flex h-full w-full cursor-pointer flex-col items-center justify-center">
+          <div
+            key={index}
+            className="flex h-full w-full cursor-grab flex-col items-center justify-center active:cursor-grabbing"
+          >
             <div
               className="bg-bottom-4 w-full bg-contain bg-no-repeat"
               style={{

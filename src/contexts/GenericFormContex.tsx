@@ -22,13 +22,23 @@ const defaultValues: AnswerData = {
 export const GenericFormProvider = ({ children, onSubmit }: Props) => {
   const methods = useForm<AnswerData>({
     defaultValues: defaultValues,
-    mode: 'onChange',
+    mode: 'onBlur',
     shouldFocusError: false,
   });
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' && event.target instanceof HTMLInputElement) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <FormProvider {...methods}>
-      <form className="h-[calc(100%-84px)]" onSubmit={methods.handleSubmit(onSubmit)}>
+      <form
+        className="h-[calc(100%-84px)]"
+        onSubmit={methods.handleSubmit(onSubmit)}
+        onKeyDown={handleKeyDown}
+      >
         {children}
       </form>
     </FormProvider>

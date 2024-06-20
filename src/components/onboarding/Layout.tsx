@@ -1,5 +1,5 @@
 const Layout = ({ children }: ChildrenProps) => {
-  return <div className="mx-auto flex h-full w-full flex-col justify-between px-6 py-9">{children}</div>;
+  return <div className="flex flex-col justify-between w-full h-full px-6 mx-auto pb-9">{children}</div>;
 };
 
 export default Layout;

@@ -1,6 +1,5 @@
 import NavigateButton from 'components/common/NavigateButton';
 import Banner from 'components/home/Banner';
-import Footer from 'components/home/Footer';
 import HomeHeader from 'components/home/HomeHeader';
 import Layout from 'components/home/Layout';
 import { SERVER_URL } from 'constants/env';
@@ -10,8 +9,7 @@ const Home = () => {
     <Layout>
       <HomeHeader shareUrl={SERVER_URL} />
       <Banner />
-      <NavigateButton path="onboarding" text="시작하기" />
-      <Footer />
+      <NavigateButton path="onboarding" text="시작하기" ga="splash_cta" />
     </Layout>
   );
 };

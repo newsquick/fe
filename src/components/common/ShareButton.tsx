@@ -1,10 +1,15 @@
 import ShareIcon from 'assets/svg/share.svg?react';
+import Toast from 'components/common/Toast';
+import useToast from 'hooks/useToast';
 
 type Props = {
   url: string;
+  ga: string;
 };
 
-const ShareButton = ({ url }: Props) => {
+const ShareButton = ({ url, ga }: Props) => {
+  const { isShow, handleShowToast } = useToast(3000);
+
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
@@ -12,16 +17,19 @@ const ShareButton = ({ url }: Props) => {
         url: url,
       });
     } else if (navigator.clipboard) {
-      navigator.clipboard.writeText(url).then(() => alert('링크가 클립보드에 복사되었습니다.'));
+      navigator.clipboard.writeText(url).then(() => handleShowToast());
     } else {
       alert('공유하기가 지원되지 않는 환경 입니다.');
     }
   };
 
   return (
-    <button className="flex h-6 w-6 items-center justify-end" onClick={handleShare} data-ga="header_share">
-      <ShareIcon />
-    </button>
+    <>
+      <button className="flex h-6 w-6 items-center justify-end" onClick={handleShare} data-ga={ga}>
+        <ShareIcon />
+      </button>
+      <Toast isShow={isShow} message="링크를 성공적으로 복사했어요!" />
+    </>
   );
 };
 

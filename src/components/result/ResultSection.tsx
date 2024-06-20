@@ -1,9 +1,9 @@
 import EditIcon from 'assets/svg/edit.svg?react';
-import CopyToClipboardButton from 'components/result/resultSection/ClipboardButton';
-import ResultHeader from 'components/result/resultSection/ResultHeader';
-import ResultRetryButton from 'components/result/resultSection/ResultRetryButton';
-import ResultTitle from 'components/result/resultSection/ResultTitle';
-import SaveImageButton from 'components/result/resultSection/SaveImageButton';
+import CopyToClipboardButton from 'components/result/CopyToClipboardButton';
+import ResultHeader from 'components/result/ResultHeader';
+import ResultRetryButton from 'components/result/ResultRetryButton';
+import ResultTitle from 'components/result/ResultTitle';
+import SaveImageButton from 'components/result/SaveImageButton';
 import { SERVER_URL } from 'constants/env';
 import useGetMessage from 'hooks/apis/useGetMessage';
 import useSaveImage from 'hooks/useSaveImage';
@@ -14,13 +14,13 @@ type Props = {
 };
 
 const ResultSection = ({ onRetry }: Props) => {
-  const { id } = useParams();
-  const { result, userName } = useGetMessage(String(id));
-  const { targetRef, handleSaveImage } = useSaveImage();
+  const { shareKey } = useParams();
+  const { id, result, userName } = useGetMessage(String(shareKey));
+  const { targetRef, handleSaveImage, isSupported } = useSaveImage();
 
   return (
     <div className="flex flex-col items-center bg-gradient bg-cover px-6" ref={targetRef}>
-      <ResultHeader shareUrl={`${SERVER_URL}/share/${id}`} />
+      <ResultHeader shareUrl={`${SERVER_URL}/share/${shareKey}`} />
       <ResultTitle name={userName} />
       <div className="mb-5 w-full rounded-[10px] border border-white border-opacity-60 bg-white bg-opacity-50 bg-clip-padding px-[26px] pb-[26px] pt-[29px] backdrop-blur-sm backdrop-filter">
         <span className="whitespace-pre-line text-[15px] leading-[170%] tracking-[-0.6px] text-gray800">
@@ -35,14 +35,14 @@ const ResultSection = ({ onRetry }: Props) => {
               name: userName,
             }}
           >
-            <button>
+            <button data-ga="result_modify">
               <EditIcon />
             </button>
           </Link>
         </div>
       </div>
       <div className="flex w-full gap-2" data-html2canvas-ignore="true">
-        <SaveImageButton onSave={handleSaveImage} />
+        <SaveImageButton onSave={handleSaveImage} support={isSupported} />
         <CopyToClipboardButton copyText={result} />
       </div>
       <ResultRetryButton retryResult={onRetry} />

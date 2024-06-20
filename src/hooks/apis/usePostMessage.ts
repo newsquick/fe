@@ -8,9 +8,9 @@ const usePostMessage = () => {
 
   const handlePost = async (answer: AnswerData) => {
     setIsLoading(true);
-    const id = await MessageApi.POST(answer);
+    const shareKey = await MessageApi.POST(answer);
     setIsLoading(false);
-    navigate(`/result/${id}`, { state: answer });
+    navigate(`/result/${shareKey}`, { state: answer });
   };
 
   return { isLoading, handlePost };

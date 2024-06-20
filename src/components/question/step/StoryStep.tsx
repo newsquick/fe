@@ -28,7 +28,7 @@ const StoryStep = ({ nextStep }: Props) => {
         <QuestionTitle text={'축사 중간에 들어갈 재밌는\n에피소드가 있다면 알려 주세요.'} />
         <Textarea
           register={register('story', {
-            required: '이야기는 필수 입력입니다.',
+            required: '3글자 이상 입력해 주세요.',
             minLength: {
               value: 3,
               message: '3글자 이상 입력해주세요.',
@@ -37,7 +37,9 @@ const StoryStep = ({ nextStep }: Props) => {
           error={errors.story?.message}
           counter={story.length}
           id="lastComment"
-          placeholder="ex. 매일같이 학교 앞에서 떡볶이 사먹으며 친하게 지냈었지."
+          placeholder={
+            '자세히 작성할수록 더 진심이 담긴 축사 문장을\n받아볼 수 있어요. ex: 나에게 연애 상담을 하던 게\n엊그제 같은데 결혼을 한다니 정말 감회가 새롭다.'
+          }
           maxLength={400}
         />
       </div>

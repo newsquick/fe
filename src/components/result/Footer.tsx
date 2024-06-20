@@ -11,6 +11,7 @@ const Footer = () => {
           <a
             className="text-[13px] text-[#7A828B] underline underline-offset-2"
             href="mailto:bloom.wedding.cs@gmail.com"
+            data-ga="result_cs"
           >
             bloom.wedding.cs@gmail.com
           </a>

@@ -1,9 +1,9 @@
 import EditHeader from 'components/edit/EditHeader';
 import EditSection from 'components/edit/EditSection';
 import Layout from 'components/edit/Layout';
-import ResultTitle from 'components/result/resultSection/ResultTitle';
-import useInput from 'hooks/useInput';
+import ResultTitle from 'components/result/ResultTitle';
 import usePutMessage from 'hooks/apis/usePutMessage';
+import useInput from 'hooks/useInput';
 import { useLocation } from 'react-router-dom';
 
 const Edit = () => {

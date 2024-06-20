@@ -1,12 +1,13 @@
 import Loading from 'components/common/Loading';
 import SpeechCautionSection from 'components/common/speechCautionSection/SpeechCautionSection';
 import Footer from 'components/result/Footer';
-import ResultSection from 'components/result/resultSection/ResultSection';
+import ResultSection from 'components/result/ResultSection';
 import usePostMessage from 'hooks/apis/usePostMessage';
 import { useLocation } from 'react-router-dom';
 
 const Result = () => {
   const { state: answer } = useLocation();
+  const retryAnswer = { ...answer, isRenew: true };
   const { isLoading, handlePost } = usePostMessage();
 
   return (
@@ -15,7 +16,7 @@ const Result = () => {
         <Loading isRenew={true} />
       ) : (
         <>
-          <ResultSection onRetry={() => handlePost(answer)} />
+          <ResultSection onRetry={() => handlePost(retryAnswer)} />
           <SpeechCautionSection />
           <Footer />
         </>

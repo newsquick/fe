@@ -6,7 +6,7 @@ const Onboarding = () => {
   return (
     <Layout>
       <Carousel />
-      <NavigateButton path="question" text="축사 만들러 가기" />
+      <NavigateButton path="question" text="축사 만들러 가기" ga="onboarding_cta" />
     </Layout>
   );
 };
