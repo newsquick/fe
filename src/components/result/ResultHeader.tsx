@@ -15,7 +15,7 @@ const ResultHeader = ({ shareUrl }: Props) => {
           data-ga="header_back"
           data-html2canvas-ignore="true"
         >
-          <ChevronIcon />
+          <ChevronIcon className="pointer-events-none" />
         </button>
       </Link>
       <div data-html2canvas-ignore="true">

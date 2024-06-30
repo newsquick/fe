@@ -31,8 +31,8 @@ const TargetTypeStep = ({ nextStep }: Props) => {
             }}
             data-ga="question_3rd"
           >
-            <FlowerIcon fill={fill} />
-            <span className="mt-2  text-[17px]">{value}</span>
+            <FlowerIcon fill={fill} className="pointer-events-none" />
+            <span className="mt-2 text-[17px]">{value}</span>
           </button>
         ))}
       </div>

@@ -26,7 +26,7 @@ const ShareButton = ({ url, ga }: Props) => {
   return (
     <>
       <button className="flex h-6 w-6 items-center justify-end" onClick={handleShare} data-ga={ga}>
-        <ShareIcon />
+        <ShareIcon className="pointer-events-none" />
       </button>
       <Toast isShow={isShow} message="링크를 성공적으로 복사했어요!" />
     </>
