@@ -10,12 +10,12 @@ const QuestionHeader = ({ onPrev }: Props) => {
   return (
     <div className="flex h-16 w-full items-center justify-between">
       <button className="flex h-6 w-6 items-center justify-start" onClick={onPrev} data-ga="header_back">
-        <ChevronIcon />
+        <ChevronIcon className="pointer-events-none" />
       </button>
 
       <Link to={'/'}>
         <button className="flex h-6 w-6 items-center justify-end" data-ga="header_close">
-          <CloseIcon />
+          <CloseIcon className="pointer-events-none" />
         </button>
       </Link>
     </div>

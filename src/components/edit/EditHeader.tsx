@@ -15,7 +15,7 @@ const EditHeader = ({ onUpdate }: Props) => {
         onClick={() => navigate(-1)}
         data-ga="header_back"
       >
-        <ChevronIcon />
+        <ChevronIcon className="pointer-events-none" />
       </button>
       <button className="text-[14px] font-medium text-indigo" onClick={onUpdate} data-ga="result_modify_cta">
         수정 완료

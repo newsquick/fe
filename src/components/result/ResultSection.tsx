@@ -19,7 +19,7 @@ const ResultSection = ({ onRetry }: Props) => {
   const { targetRef, handleSaveImage, isSupported } = useSaveImage();
 
   return (
-    <div className="flex flex-col items-center bg-gradient bg-cover px-6" ref={targetRef}>
+    <div className="flex flex-col items-center px-6 bg-cover bg-gradient" ref={targetRef}>
       <ResultHeader shareUrl={`${SERVER_URL}/share/${shareKey}`} />
       <ResultTitle name={userName} />
       <div className="mb-5 w-full rounded-[10px] border border-white border-opacity-60 bg-white bg-opacity-50 bg-clip-padding px-[26px] pb-[26px] pt-[29px] backdrop-blur-sm backdrop-filter">
@@ -36,7 +36,7 @@ const ResultSection = ({ onRetry }: Props) => {
             }}
           >
             <button data-ga="result_modify">
-              <EditIcon />
+              <EditIcon className='pointer-events-none' />
             </button>
           </Link>
         </div>

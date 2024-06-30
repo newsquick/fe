@@ -9,14 +9,14 @@ type Props = {
 
 const Header = ({ noCloseBtn = false, onPrev }: Props) => {
   return (
-    <div className="flex h-16 w-full items-center justify-between">
-      <button className="flex h-6 w-6 items-center justify-start" onClick={onPrev} data-ga="header_back">
-        <ChevronIcon />
+    <div className="flex items-center justify-between w-full h-16">
+      <button className="flex items-center justify-start w-6 h-6" onClick={onPrev} data-ga="header_back">
+        <ChevronIcon className='pointer-events-none'/>
       </button>
       {!noCloseBtn && (
         <Link to={'/'}>
-          <button className="flex h-6 w-6 items-center justify-end" data-ga="header_close">
-            <CloseIcon />
+          <button className="flex items-center justify-end w-6 h-6" data-ga="header_close">
+            <CloseIcon className='pointer-events-none' />
           </button>
         </Link>
       )}
